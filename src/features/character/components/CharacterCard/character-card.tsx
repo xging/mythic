@@ -1,4 +1,4 @@
-import { CharacterStats } from './CharacterStats';
+import { CharacterStats } from './character-stats';
 import type { Character } from '@/features/character/types/character';
 
 interface CharacterCardProps {
@@ -9,7 +9,7 @@ interface CharacterCardProps {
 
 export function CharacterCard({ character, isActive, onClick }: CharacterCardProps) {
   return (
-    <article
+    <div
       className={`character-card ${isActive ? 'active' : ''}`}
       data-id={character.id}
       onClick={onClick}
@@ -29,6 +29,6 @@ export function CharacterCard({ character, isActive, onClick }: CharacterCardPro
         <div className={`role ${character.role}`}>{character.role}</div>
         <CharacterStats stats={character.stats} />
       </div>
-    </article>
+    </div>
   );
 }

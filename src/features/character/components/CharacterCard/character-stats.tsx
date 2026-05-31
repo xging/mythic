@@ -1,4 +1,4 @@
-import styles from './CharacterStats.module.scss';
+import styles from './character-stats.module.scss';
 
 interface CharacterStatsProps {
   stats: Record<string, number>;
