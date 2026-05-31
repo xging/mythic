@@ -1,0 +1,19 @@
+import type { ReactNode } from 'react';
+
+interface LayoutProps {
+  children: ReactNode;
+}
+
+export function Layout({ children }: LayoutProps) {
+  return (
+    <div className="layout">
+      <header className="layout__header">
+        <h1>D&D Pet Project</h1>
+      </header>
+      <main className="layout__main">{children}</main>
+      <footer className="layout__footer">
+        <p>&copy; {new Date().getFullYear()} D&D Pet Project</p>
+      </footer>
+    </div>
+  );
+}
