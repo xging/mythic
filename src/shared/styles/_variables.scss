@@ -51,6 +51,14 @@ $shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.26);
 $transition-fast: 0.2s ease;
 $transition-base: 0.2s ease;
 
+// --- Z-Index ---
+$z-sidebar: 100;
+$z-header: 200;
+$z-overlay: 300;
+$z-modal: 400;
+$z-tooltip: 500;
+$z-toast: 600;
+
 // --- Layout ---
 $sidebar-width: 168px;
 $page-max-width: minmax(720px, 1fr);

@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react';
 
-interface LayoutProps {
+interface MainLayoutProps {
   children: ReactNode;
 }
 
-export function Layout({ children }: LayoutProps) {
+export function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className="layout">
       <header className="layout__header">

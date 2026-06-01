@@ -7,6 +7,7 @@
 // Usage:  @use 'shared/styles' as *;
 // ========================================
 
+@forward 'reset';
 @forward 'colors';
 @forward 'variables';
 @forward 'mixins';
