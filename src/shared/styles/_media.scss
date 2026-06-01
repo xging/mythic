@@ -1,0 +1,76 @@
+// ========================================
+// Shared Media Queries & Breakpoints
+// ========================================
+
+// --- Breakpoints ---
+$breakpoint-sm: 480px;
+$breakpoint-md: 760px;
+$breakpoint-lg: 960px;
+$breakpoint-xl: 1120px;
+$breakpoint-2xl: 1280px;
+
+// --- Mixins ---
+
+@mixin mobile-only {
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @media (min-width: $breakpoint-md) and (max-width: #{$breakpoint-lg - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin desktop-only {
+  @media (min-width: $breakpoint-lg) and (max-width: #{$breakpoint-xl - 1px}) {
+    @content;
+  }
+}
+
+@mixin wide-up {
+  @media (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+@mixin sidebar-break {
+  @media (max-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin page-break {
+  @media (max-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+// --- Usage examples from the project: ---
+//
+// .page-layout .page {
+//   grid-template-columns: minmax(720px, 1fr) 470px;
+//
+//   @include page-break {
+//     grid-template-columns: 1fr;
+//   }
+// }
+//
+// .page-layout .sidebar {
+//   @include sidebar-break {
+//     display: none;
+//   }
+// }

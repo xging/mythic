@@ -1,0 +1,50 @@
+// ========================================
+// Shared Color Palette
+// ========================================
+
+// Background
+$bg-primary: #070d10;
+$bg-panel: #0d1519;
+$bg-panel-2: #111b21;
+$bg-overlay: rgba(0, 0, 0, 0.55);
+
+// Text
+$text-primary: #f4efe7;
+$text-muted: #a9b1b4;
+$text-dark: #1a1a2e;
+
+// Accent colors
+$red: #b83a36;
+$red-2: #7f2527;
+$green: #2e7d4f;
+$purple: #68439a;
+$yellow: #9a7b2f;
+$blue: #2d6b83;
+
+// Role colors
+$role-healer-bg: rgba(46, 125, 79, 0.25);
+$role-healer-text: #98daa9;
+$role-tank-bg: rgba(184, 58, 54, 0.25);
+$role-tank-text: #ff9b91;
+$role-damage-bg: rgba(104, 67, 154, 0.35);
+$role-damage-text: #d6b5ff;
+$role-support-bg: rgba(154, 123, 47, 0.35);
+$role-support-text: #f6d36f;
+$role-utility-bg: rgba(45, 107, 131, 0.35);
+$role-utility-text: #9bd8ef;
+
+// Borders & lines
+$line-color: rgba(255, 255, 255, 0.08);
+
+// Buttons
+$btn-primary-bg: #4a90d9;
+$btn-primary-hover: #357abd;
+$btn-secondary-bg: #e8e8e8;
+$btn-secondary-hover: #d0d0d0;
+$btn-ghost-color: #666;
+$btn-ghost-hover: #f0f0f0;
+
+// Misc
+$white: #ffffff;
+$black: #000000;
+$card-shadow: rgba(0, 0, 0, 0.1);

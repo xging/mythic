@@ -1,0 +1,13 @@
+// ========================================
+// Shared Styles — Barrel file
+// ========================================
+// Import this file to get all shared SCSS
+// tokens, mixins, and media queries.
+//
+// Usage:  @use 'shared/styles' as *;
+// ========================================
+
+@forward 'colors';
+@forward 'variables';
+@forward 'mixins';
+@forward 'media';
