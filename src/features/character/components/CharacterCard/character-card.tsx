@@ -14,10 +14,7 @@ export function CharacterCard({ character, isActive, onClick }: CharacterCardPro
       data-id={character.id}
       onClick={onClick}
     >
-      <div
-        className="card-image"
-        style={{ backgroundImage: `url('${character.image}')` }}
-      >
+      <div className="card-image" style={{ backgroundImage: `url('${character.image}')` }}>
         <span className="favorite">♡</span>
         <span className="level">Lvl {character.level}</span>
       </div>

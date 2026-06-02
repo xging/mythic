@@ -4,7 +4,7 @@ export interface Character {
   race: string;
   className: string;
   level: number;
-  role: "Healer" | "Tank" | "Damage" | "Support" | "Utility";
+  role: 'Healer' | 'Tank' | 'Damage' | 'Support' | 'Utility';
   image: string;
   stats: Record<string, number>;
   about: string;

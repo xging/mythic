@@ -76,7 +76,9 @@
   border-radius: 6px;
   cursor: pointer;
   font-weight: 500;
-  transition: background-color 0.2s, opacity 0.2s;
+  transition:
+    background-color 0.2s,
+    opacity 0.2s;
 }
 
 .btn--primary {
@@ -103,9 +105,18 @@
   background: #f0f0f0;
 }
 
-.btn--sm { padding: 0.375rem 0.75rem; font-size: 0.875rem; }
-.btn--md { padding: 0.5rem 1rem; font-size: 1rem; }
-.btn--lg { padding: 0.75rem 1.5rem; font-size: 1.125rem; }
+.btn--sm {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+}
+.btn--md {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+.btn--lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+}
 
 /* Campaign card */
 .campaign-card {
@@ -145,7 +156,7 @@
   --bg: #070d10;
   --panel: #0d1519;
   --panel-2: #111b21;
-  --line: rgba(255,255,255,.08);
+  --line: rgba(255, 255, 255, 0.08);
   --text: #f4efe7;
   --muted: #a9b1b4;
   --red: #b83a36;
@@ -158,11 +169,16 @@
   margin: 0;
   min-height: 100vh;
   color: var(--text);
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
   background:
-    radial-gradient(circle at 20% 10%, rgba(59, 87, 92, .22), transparent 30%),
-    radial-gradient(circle at 80% 20%, rgba(120, 43, 42, .16), transparent 28%),
-    var(--bg);
+    radial-gradient(circle at 20% 10%, rgba(59, 87, 92, 0.22), transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(120, 43, 42, 0.16), transparent 28%), var(--bg);
 }
 
 .page-layout * {
@@ -240,7 +256,7 @@
 .page-layout .nav-item.active,
 .page-layout .nav-item:hover {
   color: #fff;
-  background: rgba(184, 58, 54, .14);
+  background: rgba(184, 58, 54, 0.14);
 }
 
 .page-layout .about-btn {
@@ -249,7 +265,7 @@
   border-radius: 8px;
   padding: 10px;
   color: var(--text);
-  background: rgba(255,255,255,.04);
+  background: rgba(255, 255, 255, 0.04);
   cursor: pointer;
 }
 
@@ -287,12 +303,12 @@
 }
 
 .page-layout .primary-btn {
-  border: 1px solid rgba(255,255,255,.14);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 9px;
   padding: 13px 18px;
   color: #fff;
   background: linear-gradient(180deg, var(--red), var(--red-2));
-  box-shadow: 0 10px 25px rgba(0,0,0,.24);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.24);
   cursor: pointer;
 }
 
@@ -315,7 +331,7 @@
   border: 1px solid var(--line);
   border-radius: 8px;
   color: var(--text);
-  background: rgba(255,255,255,.045);
+  background: rgba(255, 255, 255, 0.045);
   outline: none;
 }
 
@@ -348,16 +364,16 @@
   min-height: 360px;
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: rgba(255,255,255,.035);
+  background: rgba(255, 255, 255, 0.035);
   cursor: pointer;
-  transition: .2s ease;
+  transition: 0.2s ease;
 }
 
 .page-layout .character-card:hover,
 .page-layout .character-card.active {
   transform: translateY(-3px);
-  border-color: rgba(255,255,255,.35);
-  box-shadow: 0 18px 40px rgba(0,0,0,.26);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.26);
 }
 
 .page-layout .card-image {
@@ -368,10 +384,10 @@
 }
 
 .page-layout .card-image::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 35%, rgba(0,0,0,.9));
+  background: linear-gradient(180deg, transparent 35%, rgba(0, 0, 0, 0.9));
 }
 
 .page-layout .favorite,
@@ -381,7 +397,7 @@
   top: 12px;
   border-radius: 8px;
   padding: 5px 8px;
-  background: rgba(0,0,0,.55);
+  background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(8px);
 }
 
@@ -419,11 +435,26 @@
   font-size: 13px;
 }
 
-.page-layout .role.Healer { background: rgba(46, 125, 79, .25); color: #98daa9; }
-.page-layout .role.Tank { background: rgba(184, 58, 54, .25); color: #ff9b91; }
-.page-layout .role.Damage { background: rgba(104, 67, 154, .35); color: #d6b5ff; }
-.page-layout .role.Support { background: rgba(154, 123, 47, .35); color: #f6d36f; }
-.page-layout .role.Utility { background: rgba(45, 107, 131, .35); color: #9bd8ef; }
+.page-layout .role.Healer {
+  background: rgba(46, 125, 79, 0.25);
+  color: #98daa9;
+}
+.page-layout .role.Tank {
+  background: rgba(184, 58, 54, 0.25);
+  color: #ff9b91;
+}
+.page-layout .role.Damage {
+  background: rgba(104, 67, 154, 0.35);
+  color: #d6b5ff;
+}
+.page-layout .role.Support {
+  background: rgba(154, 123, 47, 0.35);
+  color: #f6d36f;
+}
+.page-layout .role.Utility {
+  background: rgba(45, 107, 131, 0.35);
+  color: #9bd8ef;
+}
 
 .page-layout .stats {
   display: grid;
@@ -450,7 +481,7 @@
   height: 100vh;
   overflow-y: auto;
   border-left: 1px solid var(--line);
-  background: rgba(8, 14, 17, .96);
+  background: rgba(8, 14, 17, 0.96);
 }
 
 .page-layout .hero {
@@ -464,12 +495,12 @@
 }
 
 .page-layout .hero::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.92)),
-    linear-gradient(90deg, rgba(0,0,0,.2), rgba(0,0,0,.55));
+    linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.92)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.55));
 }
 
 .page-layout .hero-content {
@@ -494,7 +525,7 @@
   padding: 14px;
   margin-bottom: 22px;
   border-radius: 12px;
-  background: rgba(255,255,255,.045);
+  background: rgba(255, 255, 255, 0.045);
 }
 
 .page-layout .big-stats .stat {
@@ -540,8 +571,12 @@
   line-height: 1.8;
 }
 
-.page-layout .good li::marker { color: #62c56f; }
-.page-layout .bad li::marker { color: #ff5757; }
+.page-layout .good li::marker {
+  color: #62c56f;
+}
+.page-layout .bad li::marker {
+  color: #ff5757;
+}
 
 .page-layout .tags {
   display: flex;
@@ -553,7 +588,7 @@
   border-radius: 999px;
   padding: 7px 10px;
   color: var(--muted);
-  background: rgba(255,255,255,.08);
+  background: rgba(255, 255, 255, 0.08);
   font-size: 13px;
 }
 

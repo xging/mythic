@@ -18,13 +18,7 @@ export function Container({
   as: Component = 'div',
 }: ContainerProps) {
   return (
-    <Component
-      className={cn(
-        styles.container,
-        size && styles[`container--${size}`],
-        className,
-      )}
-    >
+    <Component className={cn(styles.container, size && styles[`container--${size}`], className)}>
       {children}
     </Component>
   );

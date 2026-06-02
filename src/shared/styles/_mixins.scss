@@ -77,7 +77,11 @@
 }
 
 // --- Scrollbar ---
-@mixin custom-scrollbar($width: 8px, $thumb-color: rgba(255, 255, 255, 0.15), $track-color: transparent) {
+@mixin custom-scrollbar(
+  $width: 8px,
+  $thumb-color: rgba(255, 255, 255, 0.15),
+  $track-color: transparent
+) {
   &::-webkit-scrollbar {
     width: $width;
   }

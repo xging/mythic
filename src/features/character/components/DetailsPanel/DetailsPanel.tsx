@@ -6,11 +6,8 @@ interface DetailsPanelProps {
 
 function statMarkup(stats: Record<string, number>) {
   return Object.entries(stats)
-    .map(
-      ([key, value]) =>
-        `<div class="stat">${key}<strong>${value}</strong></div>`
-    )
-    .join("");
+    .map(([key, value]) => `<div class="stat">${key}<strong>${value}</strong></div>`)
+    .join('');
 }
 
 export function DetailsPanel({ character }: DetailsPanelProps) {
@@ -18,10 +15,7 @@ export function DetailsPanel({ character }: DetailsPanelProps) {
 
   return (
     <aside className="details-panel">
-      <div
-        className="hero"
-        style={{ backgroundImage: `url('${character.image}')` }}
-      >
+      <div className="hero" style={{ backgroundImage: `url('${character.image}')` }}>
         <div className="hero-content">
           <h2>{character.name}</h2>
           <p>
@@ -96,7 +90,9 @@ export function DetailsPanel({ character }: DetailsPanelProps) {
           <h4>Tags</h4>
           <div className="tags">
             {character.tags.map((tag) => (
-              <span className="tag" key={tag}>{tag}</span>
+              <span className="tag" key={tag}>
+                {tag}
+              </span>
             ))}
           </div>
         </section>

@@ -15,15 +15,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   return (
-    <button
-      className={cn(
-        'btn',
-        `btn--${variant}`,
-        `btn--${size}`,
-        className
-      )}
-      {...props}
-    >
+    <button className={cn('btn', `btn--${variant}`, `btn--${size}`, className)} {...props}>
       {children}
     </button>
   );

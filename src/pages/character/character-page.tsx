@@ -41,5 +41,3 @@ export function CharacterPage() {
     </div>
   );
 }
-
-export type { Character };
