@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/shared/ui';
 import { ROUTES } from '@/app/router/routes';
+import { CharactersList } from '@/features/character/components';
 
 export function HomePage() {
   return (
@@ -18,6 +19,10 @@ export function HomePage() {
           <Button variant="secondary">Campaigns</Button>
         </Link>
       </nav>
+      <section className="home-page__characters">
+        <h3>Characters</h3>
+        <CharactersList />
+      </section>
     </div>
   );
 }
