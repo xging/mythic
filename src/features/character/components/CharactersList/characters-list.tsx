@@ -1,21 +1,26 @@
-import { characters } from '@/shared/data/characters';
+import type { Character } from '@/features/character/types/character';
 import { CharacterCard } from '@/features/character/components/CharacterCard/character-card';
 import styles from './characters-list.module.scss';
 
-export function CharactersList() {
-  const handleCharacterClick = (id: string) => {
-    // TODO: navigate to character details or open panel
-    console.log(`Character clicked: ${id}`);
-  };
+interface CharactersListProps {
+  characters: Character[];
+  selectedCharacterId: string | null;
+  onCharacterSelect: (id: string) => void;
+}
 
+export function CharactersList({
+  characters,
+  selectedCharacterId,
+  onCharacterSelect,
+}: CharactersListProps) {
   return (
     <div className={styles.charactersList}>
       {characters.map((character) => (
         <CharacterCard
           key={character.id}
           character={character}
-          isActive={false}
-          onClick={() => handleCharacterClick(character.id)}
+          isActive={selectedCharacterId === character.id}
+          onClick={() => onCharacterSelect(character.id)}
         />
       ))}
     </div>
