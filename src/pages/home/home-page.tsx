@@ -1,74 +1,35 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 
 import { characters } from '@/shared/data/characters';
-import { CharactersList } from '@/features/character/components';
-import { DetailsPanel } from '@/features/character/components/DetailsPanel/DetailsPanel';
-// import type { Character } from '@/features/character/types/character';
-
-const UNIVERSES = [
-  'all',
-  'My Universe',
-  'Fantasy',
-  'Sci-Fi',
-  'Modern',
-  'Anime',
-  'Superhero',
-  'Others',
-];
-
-const ROLES = [
-  'all',
-  'Healer',
-  'Leader',
-  'Scout',
-  'Stealth',
-  'Support',
-  'Paragon',
-  'Human',
-  'Rogue',
-];
-
-const ALIGNMENTS = ['all', 'Good', 'Neutral', 'Chaotic', 'Unknown'];
+import { UNIVERSES, UNIVERSE_COLORS } from '@/entities/character/model';
+import { CharacterList, CharacterDetails } from '@/entities/character/ui';
+import { useFilteredCharacters } from '@/features/character-filters/model';
+import {
+  SearchInput,
+  UniverseFilter,
+  RoleFilter,
+  AlignmentFilter,
+} from '@/features/character-filters/ui';
 
 export function HomePage() {
+  // State
   const [search, setSearch] = useState('');
-  const [universeFilter, setUniverseFilter] = useState('all');
-  const [roleFilter, setRoleFilter] = useState('all');
-  const [alignmentFilter, setAlignmentFilter] = useState('all');
+  const [selectedUniverse, setSelectedUniverse] = useState('all');
+  const [selectedRole, setSelectedRole] = useState('all');
+  const [selectedAlignment, setSelectedAlignment] = useState('all');
   const [activeUniverseTab, setActiveUniverseTab] = useState('all');
   const [selectedCharacterId, setSelectedCharacterId] = useState<string | null>(
     characters[0]?.id ?? null,
   );
 
-  const filteredCharacters = useMemo(
-    () =>
-      characters.filter((character) => {
-        const normalizedSearch = search.trim().toLowerCase();
-        const matchesSearch =
-          normalizedSearch.length === 0 ||
-          [character.name, character.origin, character.role, character.universe]
-            .join(' ')
-            .toLowerCase()
-            .includes(normalizedSearch);
-
-        const matchesSelectUniverse =
-          universeFilter === 'all' || character.universe === universeFilter;
-        const matchesTabUniverse =
-          activeUniverseTab === 'all' || character.universe === activeUniverseTab;
-        const matchesRole = roleFilter === 'all' || character.roleFilter === roleFilter;
-        const matchesAlignment =
-          alignmentFilter === 'all' || character.alignment === alignmentFilter;
-
-        return (
-          matchesSearch &&
-          matchesSelectUniverse &&
-          matchesTabUniverse &&
-          matchesRole &&
-          matchesAlignment
-        );
-      }),
-    [search, universeFilter, roleFilter, alignmentFilter, activeUniverseTab],
-  );
+  // Filtering
+  const filteredCharacters = useFilteredCharacters(characters, {
+    search,
+    universe: selectedUniverse,
+    role: selectedRole,
+    alignment: selectedAlignment,
+    activeUniverseTab,
+  });
 
   const selectedCharacter =
     filteredCharacters.find((character) => character.id === selectedCharacterId) ||
@@ -180,46 +141,10 @@ export function HomePage() {
         </header>
 
         <section className="filters-bar" aria-label="Character filters">
-          <label className="search-field">
-            <input
-              id="searchInput"
-              type="search"
-              value={search}
-              placeholder="Search characters..."
-              onChange={(event) => setSearch(event.target.value)}
-            />
-            <span>⌕</span>
-          </label>
-
-          <select
-            value={universeFilter}
-            onChange={(event) => setUniverseFilter(event.target.value)}
-          >
-            {UNIVERSES.map((universe) => (
-              <option key={universe} value={universe}>
-                {universe === 'all' ? 'All Universes' : universe}
-              </option>
-            ))}
-          </select>
-
-          <select value={roleFilter} onChange={(event) => setRoleFilter(event.target.value)}>
-            {ROLES.map((role) => (
-              <option key={role} value={role}>
-                {role === 'all' ? 'All Roles' : role}
-              </option>
-            ))}
-          </select>
-
-          <select
-            value={alignmentFilter}
-            onChange={(event) => setAlignmentFilter(event.target.value)}
-          >
-            {ALIGNMENTS.map((alignment) => (
-              <option key={alignment} value={alignment}>
-                {alignment === 'all' ? 'All Alignments' : alignment}
-              </option>
-            ))}
-          </select>
+          <SearchInput value={search} onChange={setSearch} />
+          <UniverseFilter value={selectedUniverse} onChange={setSelectedUniverse} />
+          <RoleFilter value={selectedRole} onChange={setSelectedRole} />
+          <AlignmentFilter value={selectedAlignment} onChange={setSelectedAlignment} />
 
           <div className="sort-control">
             <span>Sort by</span>
@@ -242,7 +167,9 @@ export function HomePage() {
                 onClick={() => setActiveUniverseTab(universe)}
               >
                 <span
-                  className={`dot ${universe === 'My Universe' ? 'purple' : universe === 'Fantasy' ? 'cyan' : universe === 'Sci-Fi' ? 'green' : universe === 'Modern' ? 'orange' : universe === 'Anime' ? 'red' : universe === 'Superhero' ? 'yellow' : 'gray'}`}
+                  className={`dot ${
+                    universe === 'all' ? 'gray' : UNIVERSE_COLORS[universe] || 'gray'
+                  }`}
                 />
                 {universe === 'all' ? 'All' : universe}
               </button>
@@ -252,7 +179,7 @@ export function HomePage() {
 
         <section id="charactersGrid" className="characters-grid" aria-label="Characters list">
           {filteredCharacters.length > 0 ? (
-            <CharactersList
+            <CharacterList
               characters={filteredCharacters}
               selectedCharacterId={selectedCharacter?.id ?? null}
               onCharacterSelect={setSelectedCharacterId}
@@ -292,7 +219,7 @@ export function HomePage() {
       </main>
 
       <aside id="detailsPanel" className="details-panel">
-        <DetailsPanel character={selectedCharacter} />
+        <CharacterDetails character={selectedCharacter} />
       </aside>
     </div>
   );
