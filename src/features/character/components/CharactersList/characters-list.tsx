@@ -8,11 +8,11 @@ interface CharactersListProps {
   onCharacterSelect: (id: string) => void;
 }
 
-export function CharactersList({
+export const CharactersList = ({
   characters,
   selectedCharacterId,
   onCharacterSelect,
-}: CharactersListProps) {
+}: CharactersListProps) => {
   return (
     <div className={styles.charactersList}>
       {characters.map((character) => (
@@ -25,4 +25,4 @@ export function CharactersList({
       ))}
     </div>
   );
-}
+};

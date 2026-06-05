@@ -22,7 +22,7 @@ const CLASSES = [
 const ROLES = ['Healer', 'Tank', 'Damage', 'Support', 'Utility'];
 const LEVELS = ['1-5', '6-10'];
 
-export function Toolbar({
+export const Toolbar = ({
   search,
   classFilter,
   roleFilter,
@@ -31,7 +31,7 @@ export function Toolbar({
   onClassFilterChange,
   onRoleFilterChange,
   onLevelFilterChange,
-}: ToolbarProps) {
+}: ToolbarProps) => {
   return (
     <section className="toolbar">
       <label className="search">
@@ -73,4 +73,4 @@ export function Toolbar({
       </select>
     </section>
   );
-}
+};

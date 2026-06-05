@@ -5,7 +5,7 @@ interface AlignmentFilterProps {
   onChange: (value: string) => void;
 }
 
-export function AlignmentFilter({ value, onChange }: AlignmentFilterProps) {
+export const AlignmentFilter = ({ value, onChange }: AlignmentFilterProps) => {
   return (
     <select value={value} onChange={(event) => onChange(event.target.value)}>
       {ALIGNMENTS.map((alignment) => (
@@ -15,4 +15,4 @@ export function AlignmentFilter({ value, onChange }: AlignmentFilterProps) {
       ))}
     </select>
   );
-}
+};

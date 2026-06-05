@@ -17,7 +17,7 @@ const colorMap = {
   gray: { accent: '#9ca3af', glow: 'rgba(156, 163, 175, 0.24)' },
 } as const;
 
-export function CharacterDetails({ character }: CharacterDetailsProps) {
+export const CharacterDetails = ({ character }: CharacterDetailsProps) => {
   if (!character) return null;
 
   const color = colorMap[character.color] ?? colorMap.purple;
@@ -117,4 +117,4 @@ export function CharacterDetails({ character }: CharacterDetailsProps) {
       </div>
     </article>
   );
-}
+};

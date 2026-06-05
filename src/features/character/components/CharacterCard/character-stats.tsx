@@ -4,7 +4,7 @@ interface CharacterStatsProps {
   stats: Record<string, number>;
 }
 
-export function CharacterStats({ stats }: CharacterStatsProps) {
+export const CharacterStats = ({ stats }: CharacterStatsProps) => {
   return (
     <div className={styles.stats}>
       {Object.entries(stats).map(([key, value]) => (
@@ -15,4 +15,4 @@ export function CharacterStats({ stats }: CharacterStatsProps) {
       ))}
     </div>
   );
-}
+};

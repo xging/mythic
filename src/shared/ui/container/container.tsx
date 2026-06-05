@@ -11,15 +11,15 @@ interface ContainerProps {
   as?: 'div' | 'section' | 'article' | 'header' | 'footer' | 'main';
 }
 
-export function Container({
+export const Container = ({
   children,
   size = 'lg',
   className,
   as: Component = 'div',
-}: ContainerProps) {
+}: ContainerProps) => {
   return (
     <Component className={cn(styles.container, size && styles[`container--${size}`], className)}>
       {children}
     </Component>
   );
-}
+};

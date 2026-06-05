@@ -11,7 +11,7 @@ import {
   AlignmentFilter,
 } from '@/features/character-filters/ui';
 
-export function HomePage() {
+export const HomePage = () => {
   // State
   const [search, setSearch] = useState('');
   const [selectedUniverse, setSelectedUniverse] = useState('all');
@@ -223,4 +223,4 @@ export function HomePage() {
       </aside>
     </div>
   );
-}
+};

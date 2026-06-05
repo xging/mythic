@@ -6,7 +6,7 @@ interface LoadingProviderProps {
   children: ReactNode;
 }
 
-export function LoadingProvider({ children }: LoadingProviderProps) {
+export const LoadingProvider = ({ children }: LoadingProviderProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const startLoading = useCallback(() => setIsLoading(true), []);
@@ -18,4 +18,4 @@ export function LoadingProvider({ children }: LoadingProviderProps) {
       {children}
     </LoadingContext.Provider>
   );
-}
+};

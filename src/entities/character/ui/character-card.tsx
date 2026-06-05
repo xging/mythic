@@ -18,7 +18,7 @@ const colorMap = {
   gray: { accent: '#9ca3af', glow: 'rgba(156, 163, 175, 0.24)' },
 } as const;
 
-export function CharacterCard({ character, isActive, onClick }: CharacterCardProps) {
+export const CharacterCard = ({ character, isActive, onClick }: CharacterCardProps) => {
   const color = colorMap[character.color] ?? colorMap.purple;
   const style = {
     '--accent': color.accent,
@@ -50,4 +50,4 @@ export function CharacterCard({ character, isActive, onClick }: CharacterCardPro
       </div>
     </article>
   );
-}
+};

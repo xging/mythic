@@ -6,7 +6,7 @@ import { useLoading } from '@/shared/contexts';
  * Automatically shows loading screen during page transitions
  * Add this component inside RouterProvider
  */
-export function NavigationHandler() {
+export const NavigationHandler = () => {
   const location = useLocation();
   const { startLoading, stopLoading } = useLoading();
 
@@ -23,4 +23,4 @@ export function NavigationHandler() {
   }, [location.pathname, startLoading, stopLoading]);
 
   return null;
-}
+};

@@ -1,6 +1,6 @@
 import styles from './loading-screen.module.scss';
 
-export function PortalLogo() {
+export const PortalLogo = () => {
   return (
     <div className={styles['portal-logo']}>
       <div className={styles['portal-glow']}></div>
@@ -89,4 +89,4 @@ export function PortalLogo() {
       </svg>
     </div>
   );
-}
+};

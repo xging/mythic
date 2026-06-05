@@ -16,7 +16,7 @@ const colorMap = {
   gray: { accent: '#9ca3af', glow: 'rgba(156, 163, 175, 0.24)' },
 } as const;
 
-export function DetailsPanel({ character }: DetailsPanelProps) {
+export const DetailsPanel = ({ character }: DetailsPanelProps) => {
   if (!character) return null;
 
   const color = colorMap[character.color] ?? colorMap.purple;
@@ -117,4 +117,4 @@ export function DetailsPanel({ character }: DetailsPanelProps) {
       </div>
     </article>
   );
-}
+};

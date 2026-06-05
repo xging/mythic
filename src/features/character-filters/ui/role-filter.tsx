@@ -5,7 +5,7 @@ interface RoleFilterProps {
   onChange: (value: string) => void;
 }
 
-export function RoleFilter({ value, onChange }: RoleFilterProps) {
+export const RoleFilter = ({ value, onChange }: RoleFilterProps) => {
   return (
     <select value={value} onChange={(event) => onChange(event.target.value)}>
       {ROLES.map((role) => (
@@ -15,4 +15,4 @@ export function RoleFilter({ value, onChange }: RoleFilterProps) {
       ))}
     </select>
   );
-}
+};

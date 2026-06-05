@@ -5,7 +5,7 @@ import { router } from './router/router';
 import { LoadingProvider, useLoading } from '@/shared/contexts';
 import { LoadingScreen } from '@/shared/ui';
 
-function AppContent() {
+const AppContent = () => {
   const { isLoading, stopLoading } = useLoading();
 
   // Auto-hide loading screen after app initialization (first load only)
@@ -23,12 +23,12 @@ function AppContent() {
       <RouterProvider router={router} />
     </>
   );
-}
+};
 
-export function App() {
+export const App = () => {
   return (
     <LoadingProvider>
       <AppContent />
     </LoadingProvider>
   );
-}
+};

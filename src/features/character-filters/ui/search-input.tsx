@@ -5,7 +5,7 @@ interface SearchInputProps {
   onChange: (value: string) => void;
 }
 
-export function SearchInput({ value, onChange }: SearchInputProps) {
+export const SearchInput = ({ value, onChange }: SearchInputProps) => {
   return (
     <label className={styles.searchField}>
       <input
@@ -18,4 +18,4 @@ export function SearchInput({ value, onChange }: SearchInputProps) {
       <span>⌕</span>
     </label>
   );
-}
+};

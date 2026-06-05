@@ -7,7 +7,7 @@ interface LoadingScreenProps {
   isVisible?: boolean;
 }
 
-export function LoadingScreen({ isVisible = true }: LoadingScreenProps) {
+export const LoadingScreen = ({ isVisible = true }: LoadingScreenProps) => {
   if (!isVisible) return null;
 
   return (
@@ -19,4 +19,4 @@ export function LoadingScreen({ isVisible = true }: LoadingScreenProps) {
       </section>
     </main>
   );
-}
+};

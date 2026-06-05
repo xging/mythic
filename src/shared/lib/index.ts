@@ -1,17 +1,13 @@
 // Shared utility functions
 
-export function formatDate(dateString: string): string {
-  return new Date(dateString).toLocaleDateString('en-US', {
+export const formatDate = (dateString: string): string =>
+  new Date(dateString).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   });
-}
 
-export function cn(...classes: (string | boolean | undefined | null)[]): string {
-  return classes.filter(Boolean).join(' ');
-}
+export const cn = (...classes: (string | boolean | undefined | null)[]): string =>
+  classes.filter(Boolean).join(' ');
 
-export function generateId(): string {
-  return crypto.randomUUID();
-}
+export const generateId = (): string => crypto.randomUUID();

@@ -20,7 +20,7 @@ import { useLoading } from '@/shared/contexts';
  * ```
  */
 
-export function useLoadingExample() {
+export const useLoadingExample = () => {
   const { startLoading, stopLoading, setLoading } = useLoading();
 
   // Example: Show loading for 2 seconds on component mount
@@ -43,4 +43,4 @@ export function useLoadingExample() {
     stopLoading,
     setLoading,
   };
-}
+};

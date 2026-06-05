@@ -1,7 +1,7 @@
 import { characters } from '@/shared/data/characters';
 import { CharacterCard } from '@/features/character/components/CharacterCard/character-card';
 
-export function CharacterPage() {
+export const CharacterPage = () => {
   return (
     <div className="character-page">
       <h2>Characters</h2>
@@ -17,4 +17,4 @@ export function CharacterPage() {
       </div>
     </div>
   );
-}
+};

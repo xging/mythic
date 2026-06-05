@@ -5,7 +5,7 @@ interface UniverseFilterProps {
   onChange: (value: string) => void;
 }
 
-export function UniverseFilter({ value, onChange }: UniverseFilterProps) {
+export const UniverseFilter = ({ value, onChange }: UniverseFilterProps) => {
   return (
     <select value={value} onChange={(event) => onChange(event.target.value)}>
       {UNIVERSES.map((universe) => (
@@ -15,4 +15,4 @@ export function UniverseFilter({ value, onChange }: UniverseFilterProps) {
       ))}
     </select>
   );
-}
+};

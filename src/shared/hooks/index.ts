@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-export function useLocalStorage<T>(key: string, initialValue: T) {
+export const useLocalStorage = <T>(key: string, initialValue: T) => {
   const [storedValue, setStoredValue] = useState<T>(() => {
     try {
       const item = window.localStorage.getItem(key);
@@ -22,9 +22,9 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
   );
 
   return [storedValue, setValue] as const;
-}
+};
 
-export function useMediaQuery(query: string): boolean {
+export const useMediaQuery = (query: string): boolean => {
   const [matches, setMatches] = useState(() => window.matchMedia(query).matches);
 
   useEffect(() => {
@@ -35,4 +35,4 @@ export function useMediaQuery(query: string): boolean {
   }, [query]);
 
   return matches;
-}
+};

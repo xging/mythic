@@ -1,6 +1,6 @@
 import styles from './loading-screen.module.scss';
 
-export function LoadingProgress() {
+export const LoadingProgress = () => {
   return (
     <div className={styles['loading-progress']}>
       <div className={styles['progress-track']}>
@@ -9,4 +9,4 @@ export function LoadingProgress() {
       <span>Opening portal...</span>
     </div>
   );
-}
+};
