@@ -10,6 +10,37 @@ import {
   RoleFilter,
   AlignmentFilter,
 } from '@/features/character-filters/ui';
+import { homeConfig } from '@/shared/config/home';
+
+const {
+  siteName,
+  siteTagline,
+  userName,
+  userLevel,
+  mainNavTitle,
+  mainNavItems,
+  secondaryNavTitle,
+  secondaryNavItems,
+  isFooterEnabled,
+  isSettingsButtonVisible,
+  isUserCardVisible,
+  settingsLabel,
+  headerTitle,
+  headerSubtitle,
+  addCharacterLabel,
+  isAddCharacterButtonEnabled,
+  isViewToggleEnabled,
+  isSortEnabled,
+  sortLabel,
+  sortDefaultLabel,
+  isManageButtonEnabled,
+  manageLabel,
+  allLabel,
+  emptyStateText,
+  universeTabsTitle,
+  isPaginationEnabled,
+  isDetailsPanelEnabled,
+} = homeConfig;
 
 export const HomePage = () => {
   // State
@@ -43,100 +74,90 @@ export const HomePage = () => {
         <a className="logo" href="#">
           <div className="logo-mark">◇</div>
           <div>
-            <strong>NEXUS</strong>
-            <span>Multiverse Archive</span>
+            <strong>{siteName}</strong>
+            <span>{siteTagline}</span>
           </div>
         </a>
 
         <nav className="sidebar-nav" aria-label="Main navigation">
-          <p className="nav-title">Explore</p>
-          <button type="button" className="nav-link active">
-            <span className="nav-icon">◉</span>
-            Explore
-          </button>
-          <button type="button" className="nav-link">
-            <span className="nav-icon">◎</span>
-            Universes
-          </button>
-          <button type="button" className="nav-link active-purple">
-            <span className="nav-icon">♙</span>
-            Characters
-          </button>
-          <button type="button" className="nav-link">
-            <span className="nav-icon">☍</span>
-            Teams
-          </button>
-          <button type="button" className="nav-link">
-            <span className="nav-icon">⌘</span>
-            Stories
-          </button>
-          <button type="button" className="nav-link">
-            <span className="nav-icon">⌖</span>
-            Locations
-          </button>
-          <button type="button" className="nav-link">
-            <span className="nav-icon">▣</span>
-            Items
-          </button>
-          <button type="button" className="nav-link">
-            <span className="nav-icon">⊕</span>
-            Timeline
-          </button>
+          <p className="nav-title">{mainNavTitle}</p>
+          {mainNavItems
+            .filter((item) => item.enabled)
+            .map((item) => (
+              <button
+                key={item.label}
+                type="button"
+                className={`nav-link ${item.label === 'Characters' ? 'active-purple' : ''}`}
+                aria-label={item.ariaLabel}
+              >
+                <span className="nav-icon">{item.icon}</span>
+                {item.label}
+              </button>
+            ))}
         </nav>
 
         <nav className="sidebar-nav sidebar-nav-secondary" aria-label="User space">
-          <p className="nav-title">My Space</p>
-          <button type="button" className="nav-link">
-            <span className="nav-icon">♙</span>
-            My Characters
-          </button>
-          <button type="button" className="nav-link">
-            <span className="nav-icon">✥</span>
-            My Campaigns
-          </button>
-          <button type="button" className="nav-link">
-            <span className="nav-icon">▱</span>
-            Saved
-          </button>
-          <button type="button" className="nav-link">
-            <span className="nav-icon">▤</span>
-            Notes
-          </button>
+          <p className="nav-title">{secondaryNavTitle}</p>
+          {secondaryNavItems
+            .filter((item) => item.enabled)
+            .map((item) => (
+              <button
+                key={item.label}
+                type="button"
+                className="nav-link"
+                aria-label={item.ariaLabel}
+              >
+                <span className="nav-icon">{item.icon}</span>
+                {item.label}
+              </button>
+            ))}
         </nav>
 
-        <div className="sidebar-footer">
-          <button type="button" className="nav-link">
-            <span className="nav-icon">⚙</span>
-            Settings
-          </button>
+        {isFooterEnabled && (
+          <div className="sidebar-footer">
+            {isSettingsButtonVisible && (
+              <button type="button" className="nav-link">
+                <span className="nav-icon">⚙</span>
+                {settingsLabel}
+              </button>
+            )}
 
-          <div className="user-mini">
-            <div className="avatar" />
-            <div>
-              <strong>Archivist</strong>
-              <span>Level 12</span>
-            </div>
+            {isUserCardVisible && (
+              <div className="user-mini">
+                <div className="avatar" />
+                <div>
+                  <strong>{userName}</strong>
+                  <span>Level {userLevel}</span>
+                </div>
+              </div>
+            )}
           </div>
-        </div>
+        )}
       </aside>
 
       <main className="main-content">
         <header className="page-header">
           <div>
-            <h1>Characters</h1>
-            <p>Explore heroes, villains and legends from across the multiverse.</p>
+            <h1>{headerTitle}</h1>
+            <p>{headerSubtitle}</p>
           </div>
 
           <div className="header-actions">
-            <button type="button" className="primary-button">
-              + Add Character
-            </button>
-            <button type="button" className="icon-button" aria-label="Grid view">
-              ▦
-            </button>
-            <button type="button" className="icon-button" aria-label="List view">
-              ☰
-            </button>
+            {isAddCharacterButtonEnabled && (
+              <button type="button" className="primary-button">
+                {addCharacterLabel}
+              </button>
+            )}
+            {isViewToggleEnabled && (
+              <>
+                <button type="button" className="icon-button" aria-label="Grid view">
+                  ▦
+                </button>
+                <button type="button" className="icon-button" aria-label="List view">
+                  ☰
+                </button>
+              </>
+            )}
           </div>
         </header>
 
@@ -146,16 +167,18 @@ export const HomePage = () => {
           <RoleFilter value={selectedRole} onChange={setSelectedRole} />
           <AlignmentFilter value={selectedAlignment} onChange={setSelectedAlignment} />
 
-          <div className="sort-control">
-            <span>Sort by</span>
-            <button type="button">Recently Added</button>
-          </div>
+          {isSortEnabled && (
+            <div className="sort-control">
+              <span>{sortLabel}</span>
+              <button type="button">{sortDefaultLabel}</button>
+            </div>
+          )}
         </section>
 
         <section className="universe-tabs" aria-label="Universe categories">
           <div className="tabs-header">
-            <p>Universes</p>
-            <button type="button">Manage</button>
+            <p>{universeTabsTitle}</p>
+            {isManageButtonEnabled && <button type="button">{manageLabel}</button>}
           </div>
 
           <div className="tabs-list">
@@ -171,7 +194,7 @@ export const HomePage = () => {
                     universe === 'all' ? 'gray' : UNIVERSE_COLORS[universe] || 'gray'
                   }`}
                 />
-                {universe === 'all' ? 'All' : universe}
+                {universe === 'all' ? allLabel : universe}
               </button>
             ))}
           </div>
@@ -185,42 +208,46 @@ export const HomePage = () => {
               onCharacterSelect={setSelectedCharacterId}
             />
           ) : (
-            <div className="empty-state">No characters found.</div>
+            <div className="empty-state">{emptyStateText}</div>
           )}
         </section>
 
-        <nav className="pagination" aria-label="Pagination">
-          <button type="button" className="page-button">
-            ‹
-          </button>
-          <button type="button" className="page-button active">
-            1
-          </button>
-          <button type="button" className="page-button">
-            2
-          </button>
-          <button type="button" className="page-button">
-            3
-          </button>
-          <button type="button" className="page-button">
-            4
-          </button>
-          <button type="button" className="page-button">
-            5
-          </button>
-          <span>...</span>
-          <button type="button" className="page-button">
-            12
-          </button>
-          <button type="button" className="page-button">
-            ›
-          </button>
-        </nav>
+        {isPaginationEnabled && (
+          <nav className="pagination" aria-label="Pagination">
+            <button type="button" className="page-button">
+              ‹
+            </button>
+            <button type="button" className="page-button active">
+              1
+            </button>
+            <button type="button" className="page-button">
+              2
+            </button>
+            <button type="button" className="page-button">
+              3
+            </button>
+            <button type="button" className="page-button">
+              4
+            </button>
+            <button type="button" className="page-button">
+              5
+            </button>
+            <span>...</span>
+            <button type="button" className="page-button">
+              12
+            </button>
+            <button type="button" className="page-button">
+              ›
+            </button>
+          </nav>
+        )}
       </main>
 
-      <aside id="detailsPanel" className="details-panel">
-        <CharacterDetails character={selectedCharacter} />
-      </aside>
+      {isDetailsPanelEnabled && (
+        <aside id="detailsPanel" className="details-panel">
+          <CharacterDetails character={selectedCharacter} />
+        </aside>
+      )}
     </div>
   );
 };
