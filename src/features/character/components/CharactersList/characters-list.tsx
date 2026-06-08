@@ -1,4 +1,4 @@
-import type { Character } from '@/features/character/types/character';
+import type { Character } from '@/entities/character/model';
 import { CharacterCard } from '@/features/character/components/CharacterCard/character-card';
 import styles from './characters-list.module.scss';
 

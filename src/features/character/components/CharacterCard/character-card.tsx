@@ -1,4 +1,4 @@
-import type { Character } from '@/features/character/types/character';
+import type { Character } from '@/entities/character/model';
 // import type { CSSProperties } from 'react';
 
 interface CharacterCardProps {
