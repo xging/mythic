@@ -7,38 +7,31 @@ A web application for managing D&D characters, one-shots, and campaigns.
 - React 19
 - TypeScript 6
 - Vite 8
-- TailwindCSS 4
 - React Router 7
-- TanStack Query 5
+- Sass (SCSS Modules)
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ or Bun
+- Node.js 18+
 
 ### Installation
 
 ```bash
 npm install
-# or
-bun install
 ```
 
 ### Development
 
 ```bash
 npm run dev
-# or
-bun dev
 ```
 
 ### Build
 
 ```bash
 npm run build
-# or
-bun build
 ```
 
 ### Linting & Formatting
@@ -51,21 +44,41 @@ npm run format      # Format code
 
 ## Project Structure
 
+The project follows the [Feature-Sliced Design (FSD)](https://feature-sliced.design/) methodology.
+
 ```
 src/
-├── app/           # Application configuration
-│   ├── providers/ # Context providers
-│   ├── router/    # Routing configuration
-│   └── styles/    # Global styles
-├── pages/         # Page components
-├── features/      # Feature modules
-├── shared/        # Shared utilities and components
-│   ├── ui/        # Reusable UI components
-│   ├── lib/       # Utility functions
-│   ├── types/     # TypeScript types
-│   └── styles/    # Shared styles
-└── main.tsx       # Application entry point
+├── app/             # Application configuration
+│   ├── router/      # Routing configuration
+│   ├── styles/      # Global styles (CSS custom properties, layout)
+│   ├── App.tsx      # Root app component
+│   ├── RootLayout.tsx  # Layout with sidebar + outlet
+│   ├── Sidebar.tsx  # Sidebar navigation
+│   └── NavigationHandler.tsx # Loading screen on navigation
+├── pages/           # Page components
+│   ├── home/        # Main characters page (/)
+│   ├── placeholder/ # Stub pages for future sections
+│   └── not-found/   # 404 page
+├── entities/        # Business entities
+│   └── character/   # Character model, types, UI components
+├── features/        # Feature modules
+│   └── character-filters/ # Search, universe/role/alignment filters
+└── shared/          # Shared utilities and components
+    ├── ui/          # Reusable UI components (Button, LoadingScreen)
+    ├── lib/         # Utility functions
+    ├── types/       # TypeScript types
+    ├── config/      # App configuration (navigation, features, home)
+    ├── contexts/    # React contexts (LoadingProvider)
+    ├── data/        # Mock data
+    └── styles/      # Shared SCSS variables and mixins
 ```
+
+## Key Design Decisions
+
+- **CSS Modules** for component-level styling
+- **Feature-Sliced Design** for scalable architecture
+- **Single source of truth** for color maps and shared constants
+- **Sidebar navigation** driven by `navigationConfig` with `<Link>` for routing
 
 ## License
 

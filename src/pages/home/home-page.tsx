@@ -13,18 +13,6 @@ import {
 import { homeConfig } from '@/shared/config/home';
 
 const {
-  siteName,
-  siteTagline,
-  userName,
-  userLevel,
-  mainNavTitle,
-  mainNavItems,
-  secondaryNavTitle,
-  secondaryNavItems,
-  isFooterEnabled,
-  isSettingsButtonVisible,
-  isUserCardVisible,
-  settingsLabel,
   headerTitle,
   headerSubtitle,
   addCharacterLabel,
@@ -70,72 +58,7 @@ export const HomePage = () => {
     null;
 
   return (
-    <div className="app-layout">
-      <aside className="sidebar">
-        <a className="logo" href="#">
-          <div className="logo-mark">◇</div>
-          <div>
-            <strong>{siteName}</strong>
-            <span>{siteTagline}</span>
-          </div>
-        </a>
-
-        <nav className="sidebar-nav" aria-label="Main navigation">
-          <p className="nav-title">{mainNavTitle}</p>
-          {mainNavItems
-            .filter((item) => item.enabled)
-            .map((item) => (
-              <button
-                key={item.label}
-                type="button"
-                className={`nav-link ${item.label === 'Characters' ? 'active-purple' : ''}`}
-                aria-label={item.ariaLabel}
-              >
-                <span className="nav-icon">{item.icon}</span>
-                {item.label}
-              </button>
-            ))}
-        </nav>
-
-        <nav className="sidebar-nav sidebar-nav-secondary" aria-label="User space">
-          <p className="nav-title">{secondaryNavTitle}</p>
-          {secondaryNavItems
-            .filter((item) => item.enabled)
-            .map((item) => (
-              <button
-                key={item.label}
-                type="button"
-                className="nav-link"
-                aria-label={item.ariaLabel}
-              >
-                <span className="nav-icon">{item.icon}</span>
-                {item.label}
-              </button>
-            ))}
-        </nav>
-
-        {isFooterEnabled && (
-          <div className="sidebar-footer">
-            {isSettingsButtonVisible && (
-              <button type="button" className="nav-link">
-                <span className="nav-icon">⚙</span>
-                {settingsLabel}
-              </button>
-            )}
-
-            {isUserCardVisible && (
-              <div className="user-mini">
-                <div className="avatar" />
-                <div>
-                  <strong>{userName}</strong>
-                  <span>Level {userLevel}</span>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-      </aside>
-
+    <>
       <main className="main-content">
         <header className="page-header">
           <div>
@@ -249,6 +172,6 @@ export const HomePage = () => {
           <CharacterDetails character={selectedCharacter} />
         </aside>
       )}
-    </div>
+    </>
   );
 };
