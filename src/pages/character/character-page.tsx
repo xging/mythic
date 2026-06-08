@@ -1,5 +1,5 @@
 import { characters } from '@/shared/data/characters';
-import { CharacterCard } from '@/features/character/components/CharacterCard/character-card';
+import { CharacterCard } from '@/entities/character/ui';
 import styles from './character-page.module.scss';
 
 export const CharacterPage = () => {
