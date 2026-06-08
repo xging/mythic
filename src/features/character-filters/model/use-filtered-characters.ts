@@ -1,13 +1,12 @@
 import { useMemo } from 'react';
-import type { Character } from '@/entities/character/model';
+import type { Character, Universe, Role, Alignment } from '@/entities/character/model';
 
 export const getFilteredCharacters = (
   characters: Character[],
   search: string,
-  universeFilter: string,
-  roleFilter: string,
-  alignmentFilter: string,
-  activeUniverseTab: string,
+  universe: Universe,
+  role: Role,
+  alignment: Alignment,
 ): Character[] => {
   return characters.filter((character) => {
     const normalizedSearch = search.trim().toLowerCase();
@@ -18,40 +17,23 @@ export const getFilteredCharacters = (
         .toLowerCase()
         .includes(normalizedSearch);
 
-    const matchesSelectUniverse = universeFilter === 'all' || character.universe === universeFilter;
-    const matchesTabUniverse =
-      activeUniverseTab === 'all' || character.universe === activeUniverseTab;
-    const matchesRole = roleFilter === 'all' || character.roleFilter === roleFilter;
-    const matchesAlignment = alignmentFilter === 'all' || character.alignment === alignmentFilter;
+    const matchesUniverse = universe === 'all' || character.universe === universe;
+    const matchesRole = role === 'all' || character.roleFilter === role;
+    const matchesAlignment = alignment === 'all' || character.alignment === alignment;
 
-    return (
-      matchesSearch &&
-      matchesSelectUniverse &&
-      matchesTabUniverse &&
-      matchesRole &&
-      matchesAlignment
-    );
+    return matchesSearch && matchesUniverse && matchesRole && matchesAlignment;
   });
 };
 
 export const useFilteredCharacters = (
   characters: Character[],
   search: string,
-  universeFilter: string,
-  roleFilter: string,
-  alignmentFilter: string,
-  activeUniverseTab: string,
+  universe: Universe,
+  role: Role,
+  alignment: Alignment,
 ): Character[] => {
   return useMemo(
-    () =>
-      getFilteredCharacters(
-        characters,
-        search,
-        universeFilter,
-        roleFilter,
-        alignmentFilter,
-        activeUniverseTab,
-      ),
-    [characters, search, universeFilter, roleFilter, alignmentFilter, activeUniverseTab],
+    () => getFilteredCharacters(characters, search, universe, role, alignment),
+    [characters, search, universe, role, alignment],
   );
 };

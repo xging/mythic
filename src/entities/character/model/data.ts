@@ -14,11 +14,10 @@ export const ROLES = [
   'Healer',
   'Leader',
   'Scout',
-  'Stealth',
   'Support',
-  'Paragon',
-  'Human',
   'Rogue',
+  'Tank',
+  'Damage',
 ] as const;
 
 export const ALIGNMENTS = ['all', 'Good', 'Neutral', 'Chaotic', 'Unknown'] as const;

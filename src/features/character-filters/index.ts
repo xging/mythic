@@ -1,3 +1,3 @@
 export { useFilteredCharacters, getFilteredCharacters } from './model';
 
-export { SearchInput, UniverseFilter, RoleFilter, AlignmentFilter } from './ui';
+export { SearchInput, RoleFilter, AlignmentFilter } from './ui';

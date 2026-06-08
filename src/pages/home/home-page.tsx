@@ -1,54 +1,43 @@
 import { useState } from 'react';
 
-import { characters } from '@/shared/data/characters';
+import { characters } from '@/entities/character/model/characters';
 import { UNIVERSES, UNIVERSE_COLORS } from '@/entities/character/model';
+import type { Universe, Role, Alignment } from '@/entities/character/model';
 import { CharacterList, CharacterDetails } from '@/entities/character/ui';
 import { useFilteredCharacters } from '@/features/character-filters/model';
-import {
-  SearchInput,
-  UniverseFilter,
-  RoleFilter,
-  AlignmentFilter,
-} from '@/features/character-filters/ui';
-import { homeConfig } from '@/shared/config/home';
+import { SearchInput, RoleFilter, AlignmentFilter } from '@/features/character-filters/ui';
+import { featuresConfig } from '@/shared/config/features';
 
 const {
-  headerTitle,
-  headerSubtitle,
-  addCharacterLabel,
-  isAddCharacterButtonEnabled,
-  isViewToggleEnabled,
-  isSortEnabled,
-  sortLabel,
-  sortDefaultLabel,
-  isManageButtonEnabled,
-  manageLabel,
-  allLabel,
-  emptyStateText,
-  universeTabsTitle,
-  isPaginationEnabled,
-  isDetailsPanelEnabled,
-} = homeConfig;
+  headerActions: { addCharacterButton, viewToggle },
+  filters: {
+    search: searchEnabled,
+    role: roleEnabled,
+    alignment: alignmentEnabled,
+    sort: sortEnabled,
+  },
+  universeTabs: { manageButton: manageButtonEnabled },
+  characterGrid: { pagination: paginationEnabled },
+  detailsPanel: { enabled: detailsPanelEnabled },
+} = featuresConfig;
 
 export const HomePage = () => {
   // State
   const [search, setSearch] = useState('');
-  const [selectedUniverse, setSelectedUniverse] = useState('all');
-  const [selectedRole, setSelectedRole] = useState('all');
-  const [selectedAlignment, setSelectedAlignment] = useState('all');
-  const [activeUniverseTab, setActiveUniverseTab] = useState('all');
+  const [selectedUniverse, setSelectedUniverse] = useState<Universe>('all');
+  const [selectedRole, setSelectedRole] = useState<Role>('all');
+  const [selectedAlignment, setSelectedAlignment] = useState<Alignment>('all');
   const [selectedCharacterId, setSelectedCharacterId] = useState<string | null>(
     characters[0]?.id ?? null,
   );
 
-  // Filtering
+  // Filtering — universe tabs are the single source of universe filtering
   const filteredCharacters = useFilteredCharacters(
     characters,
     search,
     selectedUniverse,
     selectedRole,
     selectedAlignment,
-    activeUniverseTab,
   );
 
   const selectedCharacter =
@@ -62,17 +51,17 @@ export const HomePage = () => {
       <main className="main-content">
         <header className="page-header">
           <div>
-            <h1>{headerTitle}</h1>
-            <p>{headerSubtitle}</p>
+            <h1>Characters</h1>
+            <p>Browse and manage all your characters across universes</p>
           </div>
 
           <div className="header-actions">
-            {isAddCharacterButtonEnabled && (
+            {addCharacterButton && (
               <button type="button" className="primary-button">
-                {addCharacterLabel}
+                + Add Character
               </button>
             )}
-            {isViewToggleEnabled && (
+            {viewToggle && (
               <>
                 <button type="button" className="icon-button" aria-label="Grid view">
                   ▦
@@ -85,24 +74,27 @@ export const HomePage = () => {
           </div>
         </header>
 
-        <section className="filters-bar" aria-label="Character filters">
-          <SearchInput value={search} onChange={setSearch} />
-          <UniverseFilter value={selectedUniverse} onChange={setSelectedUniverse} />
-          <RoleFilter value={selectedRole} onChange={setSelectedRole} />
-          <AlignmentFilter value={selectedAlignment} onChange={setSelectedAlignment} />
+        {searchEnabled && (
+          <section className="filters-bar" aria-label="Character filters">
+            <SearchInput value={search} onChange={setSearch} />
+            {roleEnabled && <RoleFilter value={selectedRole} onChange={setSelectedRole} />}
+            {alignmentEnabled && (
+              <AlignmentFilter value={selectedAlignment} onChange={setSelectedAlignment} />
+            )}
 
-          {isSortEnabled && (
-            <div className="sort-control">
-              <span>{sortLabel}</span>
-              <button type="button">{sortDefaultLabel}</button>
-            </div>
-          )}
-        </section>
+            {sortEnabled && (
+              <div className="sort-control">
+                <span>Sort</span>
+                <button type="button">Default</button>
+              </div>
+            )}
+          </section>
+        )}
 
         <section className="universe-tabs" aria-label="Universe categories">
           <div className="tabs-header">
-            <p>{universeTabsTitle}</p>
-            {isManageButtonEnabled && <button type="button">{manageLabel}</button>}
+            <p>Universes</p>
+            {manageButtonEnabled && <button type="button">Manage</button>}
           </div>
 
           <div className="tabs-list">
@@ -110,15 +102,15 @@ export const HomePage = () => {
               <button
                 key={universe}
                 type="button"
-                className={`universe-tab ${universe === activeUniverseTab ? 'active' : ''}`}
-                onClick={() => setActiveUniverseTab(universe)}
+                className={`universe-tab ${universe === selectedUniverse ? 'active' : ''}`}
+                onClick={() => setSelectedUniverse(universe)}
               >
                 <span
                   className={`dot ${
                     universe === 'all' ? 'gray' : UNIVERSE_COLORS[universe] || 'gray'
                   }`}
                 />
-                {universe === 'all' ? allLabel : universe}
+                {universe === 'all' ? 'All' : universe}
               </button>
             ))}
           </div>
@@ -132,42 +124,18 @@ export const HomePage = () => {
               onCharacterSelect={setSelectedCharacterId}
             />
           ) : (
-            <div className="empty-state">{emptyStateText}</div>
+            <div className="empty-state">No characters found matching the current filters.</div>
           )}
         </section>
 
-        {isPaginationEnabled && (
+        {paginationEnabled && (
           <nav className="pagination" aria-label="Pagination">
-            <button type="button" className="page-button">
-              ‹
-            </button>
-            <button type="button" className="page-button active">
-              1
-            </button>
-            <button type="button" className="page-button">
-              2
-            </button>
-            <button type="button" className="page-button">
-              3
-            </button>
-            <button type="button" className="page-button">
-              4
-            </button>
-            <button type="button" className="page-button">
-              5
-            </button>
-            <span>...</span>
-            <button type="button" className="page-button">
-              12
-            </button>
-            <button type="button" className="page-button">
-              ›
-            </button>
+            <span className="pagination-info">Pagination coming soon</span>
           </nav>
         )}
       </main>
 
-      {isDetailsPanelEnabled && (
+      {detailsPanelEnabled && (
         <aside id="detailsPanel" className="details-panel">
           <CharacterDetails character={selectedCharacter} />
         </aside>
