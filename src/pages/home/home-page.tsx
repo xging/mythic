@@ -54,13 +54,14 @@ export const HomePage = () => {
   );
 
   // Filtering
-  const filteredCharacters = useFilteredCharacters(characters, {
+  const filteredCharacters = useFilteredCharacters(
+    characters,
     search,
-    universe: selectedUniverse,
-    role: selectedRole,
-    alignment: selectedAlignment,
+    selectedUniverse,
+    selectedRole,
+    selectedAlignment,
     activeUniverseTab,
-  });
+  );
 
   const selectedCharacter =
     filteredCharacters.find((character) => character.id === selectedCharacterId) ||

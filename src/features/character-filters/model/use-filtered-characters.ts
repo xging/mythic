@@ -1,18 +1,14 @@
 import { useMemo } from 'react';
-import type { Character, FilterOptions } from '@/entities/character/model';
+import type { Character } from '@/entities/character/model';
 
 export const getFilteredCharacters = (
   characters: Character[],
-  options: FilterOptions,
+  search: string,
+  universeFilter: string,
+  roleFilter: string,
+  alignmentFilter: string,
+  activeUniverseTab: string,
 ): Character[] => {
-  const {
-    search,
-    universe: universeFilter,
-    role: roleFilter,
-    alignment: alignmentFilter,
-    activeUniverseTab,
-  } = options;
-
   return characters.filter((character) => {
     const normalizedSearch = search.trim().toLowerCase();
     const matchesSearch =
@@ -40,7 +36,22 @@ export const getFilteredCharacters = (
 
 export const useFilteredCharacters = (
   characters: Character[],
-  options: FilterOptions,
+  search: string,
+  universeFilter: string,
+  roleFilter: string,
+  alignmentFilter: string,
+  activeUniverseTab: string,
 ): Character[] => {
-  return useMemo(() => getFilteredCharacters(characters, options), [characters, options]);
+  return useMemo(
+    () =>
+      getFilteredCharacters(
+        characters,
+        search,
+        universeFilter,
+        roleFilter,
+        alignmentFilter,
+        activeUniverseTab,
+      ),
+    [characters, search, universeFilter, roleFilter, alignmentFilter, activeUniverseTab],
+  );
 };

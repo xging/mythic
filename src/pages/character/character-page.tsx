@@ -1,11 +1,12 @@
 import { characters } from '@/shared/data/characters';
 import { CharacterCard } from '@/features/character/components/CharacterCard/character-card';
+import styles from './character-page.module.scss';
 
 export const CharacterPage = () => {
   return (
-    <div className="character-page">
+    <div className={styles.characterPage}>
       <h2>Characters</h2>
-      <div className="character-page__grid">
+      <div className={styles.grid}>
         {characters.map((character) => (
           <CharacterCard
             key={character.id}
