@@ -98,9 +98,9 @@ export const CharacterDetails = ({ character }: CharacterDetailsProps) => {
           <h3>Links</h3>
           <div className={styles.linksList}>
             {character.links.map((link) => (
-              <a key={link} href="#" className={styles.linkItem}>
+              <button key={link} type="button" className={styles.linkItem}>
                 {link}
-              </a>
+              </button>
             ))}
           </div>
         </section>

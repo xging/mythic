@@ -7,7 +7,7 @@ interface LoadingProviderProps {
 }
 
 export const LoadingProvider = ({ children }: LoadingProviderProps) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const startLoading = useCallback(() => setIsLoading(true), []);
   const stopLoading = useCallback(() => setIsLoading(false), []);

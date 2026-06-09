@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { homeConfig } from '@/shared/config/home';
 import { navigationConfig } from '@/shared/config/navigation';
 
@@ -16,9 +16,40 @@ const {
 } = homeConfig;
 
 export const Sidebar = () => {
+  const { pathname } = useLocation();
+
+  const renderNavItem = (
+    item: { label: string; icon: string; ariaLabel: string; route?: string },
+    activeClass?: string,
+  ) => {
+    const isActive = item.route ? pathname === item.route : false;
+    const className = `nav-link ${activeClass ?? ''} ${isActive ? 'active' : ''}`;
+
+    if (item.route) {
+      return (
+        <Link
+          key={item.label}
+          to={item.route}
+          className={className}
+          aria-label={item.ariaLabel}
+          aria-current={isActive ? 'page' : undefined}
+        >
+          <span className="nav-icon">{item.icon}</span>
+          {item.label}
+        </Link>
+      );
+    }
+    return (
+      <button key={item.label} type="button" className={className} aria-label={item.ariaLabel}>
+        <span className="nav-icon">{item.icon}</span>
+        {item.label}
+      </button>
+    );
+  };
+
   return (
     <aside className="sidebar">
-      <Link className="logo" to="/">
+      <Link className="logo" to="/" aria-label="Home">
         <div className="logo-mark">◇</div>
         <div>
           <strong>{siteName}</strong>
@@ -30,65 +61,16 @@ export const Sidebar = () => {
         <p className="nav-title">{mainNavTitle}</p>
         {navigationConfig.main.items
           .filter((item) => item.enabled)
-          .map((item) => {
-            const className = `nav-link ${item.label === 'Characters' ? 'active-purple' : ''}`;
-            if (item.route) {
-              return (
-                <Link
-                  key={item.label}
-                  to={item.route}
-                  className={className}
-                  aria-label={item.ariaLabel}
-                >
-                  <span className="nav-icon">{item.icon}</span>
-                  {item.label}
-                </Link>
-              );
-            }
-            return (
-              <button
-                key={item.label}
-                type="button"
-                className={className}
-                aria-label={item.ariaLabel}
-              >
-                <span className="nav-icon">{item.icon}</span>
-                {item.label}
-              </button>
-            );
-          })}
+          .map((item) =>
+            renderNavItem(item, item.label === 'Characters' ? 'active-purple' : undefined),
+          )}
       </nav>
 
       <nav className="sidebar-nav sidebar-nav-secondary" aria-label="User space">
         <p className="nav-title">{secondaryNavTitle}</p>
         {navigationConfig.secondary.items
           .filter((item) => item.enabled)
-          .map((item) => {
-            if (item.route) {
-              return (
-                <Link
-                  key={item.label}
-                  to={item.route}
-                  className="nav-link"
-                  aria-label={item.ariaLabel}
-                >
-                  <span className="nav-icon">{item.icon}</span>
-                  {item.label}
-                </Link>
-              );
-            }
-            return (
-              <button
-                key={item.label}
-                type="button"
-                className="nav-link"
-                aria-label={item.ariaLabel}
-              >
-                <span className="nav-icon">{item.icon}</span>
-                {item.label}
-              </button>
-            );
-          })}
+          .map((item) => renderNavItem(item))}
       </nav>
 
       {isFooterEnabled && (
