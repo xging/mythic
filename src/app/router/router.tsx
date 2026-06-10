@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import { RootLayout } from '../RootLayout';
 import { HomePage } from '@/pages/home/home-page';
+import { CharacterCreatePage } from '@/pages/character-create/character-create-page';
 import { PlaceholderPage } from '@/pages/placeholder/placeholder-page';
 import { NotFoundPage } from '@/pages/not-found/not-found-page';
 import { ROUTES } from './routes';
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.character,
         element: <PlaceholderPage title="Character Details" />,
+      },
+      {
+        path: '/characters/create',
+        element: <CharacterCreatePage />,
       },
       {
         path: '/explore',

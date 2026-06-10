@@ -1,7 +1,7 @@
 import { RouterProvider } from 'react-router-dom';
 
 import { router } from './router/router';
-import { LoadingProvider, useLoading } from '@/shared/contexts';
+import { LoadingProvider, CharactersProvider, useLoading } from '@/shared/contexts';
 import { LoadingScreen } from '@/shared/ui';
 import { featuresConfig } from '@/shared/config';
 
@@ -21,7 +21,9 @@ const AppContent = () => {
 export const App = () => {
   return (
     <LoadingProvider>
-      <AppContent />
+      <CharactersProvider>
+        <AppContent />
+      </CharactersProvider>
     </LoadingProvider>
   );
 };

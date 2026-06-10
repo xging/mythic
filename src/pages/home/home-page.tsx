@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import { characters } from '@/entities/character/model/characters';
 import { UNIVERSES, UNIVERSE_COLORS } from '@/entities/character/model';
+import { useCharacters } from '@/shared/contexts';
 import type { Universe, Role, Alignment } from '@/entities/character/model';
 import { CharacterList, CharacterDetails } from '@/entities/character/ui';
 import { useFilteredCharacters } from '@/features/character-filters/model';
@@ -22,6 +23,8 @@ const {
 } = featuresConfig;
 
 export const HomePage = () => {
+  const { characters } = useCharacters();
+
   // State
   const [search, setSearch] = useState('');
   const [selectedUniverse, setSelectedUniverse] = useState<Universe>('all');
@@ -57,9 +60,9 @@ export const HomePage = () => {
 
           <div className="header-actions">
             {addCharacterButton && (
-              <button type="button" className="primary-button">
+              <Link to="/characters/create" className="primary-button">
                 + Add Character
-              </button>
+              </Link>
             )}
             {viewToggle && (
               <>
