@@ -379,9 +379,8 @@ button {
 /* ---- Characters Grid (container) ---- */
 
 .characters-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(160px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(228px, 1fr));
+  gap: 18px;
 }
 
 /* ---- Pagination ---- */
@@ -435,9 +434,6 @@ button {
     --sidebar-width: 220px;
     --details-width: 380px;
   }
-  .characters-grid {
-    grid-template-columns: repeat(3, minmax(160px, 1fr));
-  }
   .filters-bar {
     grid-template-columns: 1fr 1fr;
   }
@@ -474,7 +470,7 @@ button {
     grid-template-columns: 1fr;
   }
   .characters-grid {
-    grid-template-columns: 1fr;
+    width: 100%;
   }
   .details-panel {
     grid-column: auto;
