@@ -1,0 +1,50 @@
+{
+  "name": "multiverse-front",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/multiverse-front/src",
+  "targets": {
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/multiverse-front",
+        "command": "vite --host"
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/multiverse-front",
+        "command": "tsc -b && vite build"
+      }
+    },
+    "preview": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/multiverse-front",
+        "command": "vite preview"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/multiverse-front",
+        "command": "eslint ."
+      }
+    },
+    "storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/multiverse-front",
+        "command": "storybook dev -p 6006"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/multiverse-front",
+        "command": "vitest"
+      }
+    }
+  }
+}

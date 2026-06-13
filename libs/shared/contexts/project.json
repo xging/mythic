@@ -1,0 +1,15 @@
+{
+  "name": "shared-contexts",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/shared/contexts/src",
+  "targets": {
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/shared/contexts",
+        "command": "eslint ."
+      }
+    }
+  }
+}

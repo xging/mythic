@@ -25,3 +25,11 @@ dist-ssr
 
 *storybook.log
 storybook-static
+.nx
+.nx-cache
+.temp
+
+
+
+.nx/cache
+.nx/workspace-data
