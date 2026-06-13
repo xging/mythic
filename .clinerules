@@ -1,0 +1,6 @@
+Before every task:
+1. Read AGENT_RULES.md.
+2. Follow the monorepo architecture.
+3. Do not create domain-specific components in libs/ui.
+4. Use children composition for base UI components.
+5. Ask before changing architecture.
