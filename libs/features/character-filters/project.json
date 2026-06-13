@@ -1,0 +1,15 @@
+{
+  "name": "features-character-filters",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/features/character-filters/src",
+  "targets": {
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/features/character-filters",
+        "command": "eslint ."
+      }
+    }
+  }
+}

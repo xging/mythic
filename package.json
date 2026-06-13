@@ -1,18 +1,22 @@
 {
   "name": "dnd-pet-project",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "dev": "cd apps/multiverse-front && npx vite --host --port 3000",
+    "build": "cd apps/multiverse-front && tsc -b && npx vite build",
+    "lint": "cd apps/multiverse-front && npx eslint .",
     "format": "prettier --write .",
     "prepare": "husky",
-    "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "preview": "cd apps/multiverse-front && npx vite preview --port 3000",
+    "storybook": "cd apps/multiverse-front && npx storybook dev -p 6006",
+    "build-storybook": "cd apps/multiverse-front && npx storybook build",
+    "nx:graph": "nx graph"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -32,15 +36,7 @@
     "react-router-dom": "^7.16.0"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^5.2.1",
     "@eslint/js": "^10.0.1",
-    "@storybook/addon-a11y": "^10.4.3",
-    "@storybook/addon-docs": "^10.4.3",
-    "@storybook/addon-interactions": "^8.6.14",
-    "@storybook/addon-mcp": "^0.6.0",
-    "@storybook/addon-themes": "^10.4.3",
-    "@storybook/addon-vitest": "^10.4.3",
-    "@storybook/react-vite": "^10.4.3",
     "@types/node": "^24.12.3",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
@@ -52,10 +48,11 @@
     "eslint-plugin-prettier": "^5.5.6",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
-    "eslint-plugin-storybook": "^10.4.3",
+    "eslint-plugin-storybook": "^0.11.0",
     "globals": "^17.6.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.0.7",
+    "nx": "22.7.5",
     "playwright": "^1.60.0",
     "prettier": "^3.8.3",
     "sass-embedded": "^1.100.0",
@@ -65,5 +62,6 @@
     "vite": "^8.0.12",
     "vite-plugin-checker": "^0.14.1",
     "vitest": "^4.1.8"
-  }
+  },
+  "nx": {}
 }

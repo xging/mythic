@@ -1,0 +1,7 @@
+﻿@use '../../../../shared/styles/src' as *;
+.charactersList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(228px, 1fr));
+  gap: 16px;
+  width: 100%;
+} // @media (max-width: 1220px) {//   .charactersList {//     grid-template-columns: repeat(4, 228px);//   }// }// @media (max-width: 988px) {//   .charactersList {//     grid-template-columns: repeat(3, 228px);//   }// }// @media (max-width: 756px) {//   .charactersList {//     grid-template-columns: repeat(2, 228px);//   }// }// @media (max-width: 524px) {//   .charactersList {//     grid-template-columns: 1fr;//   }// }

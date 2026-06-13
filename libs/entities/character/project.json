@@ -1,0 +1,15 @@
+{
+  "name": "entities-character",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/entities/character/src",
+  "targets": {
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/entities/character",
+        "command": "eslint ."
+      }
+    }
+  }
+}
