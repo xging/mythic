@@ -21,14 +21,14 @@
     "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
-      "@dndshka/shared/config": ["libs/shared/config/src/index.ts"],
-      "@dndshka/shared/contexts": ["libs/shared/contexts/src/index.ts"],
-      "@dndshka/shared/lib": ["libs/shared/lib/src/index.ts"],
-      "@dndshka/shared/styles": ["libs/shared/styles/src/index.ts"],
-      "@dndshka/shared/types": ["libs/shared/types/src/index.ts"],
-      "@dndshka/shared/ui": ["libs/shared/ui/src/index.ts"],
-      "@dndshka/entities/character": ["libs/entities/character/src/index.ts"],
-      "@dndshka/features/character-filters": ["libs/features/character-filters/src/index.ts"],
+      "@mythic/shared/config": ["libs/shared/config/src/index.ts"],
+      "@mythic/shared/contexts": ["libs/shared/contexts/src/index.ts"],
+      "@mythic/shared/lib": ["libs/shared/lib/src/index.ts"],
+      "@mythic/shared/styles": ["libs/shared/styles/src/index.ts"],
+      "@mythic/shared/types": ["libs/shared/types/src/index.ts"],
+      "@mythic/shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@mythic/entities/character": ["libs/entities/character/src/index.ts"],
+      "@mythic/features/character-filters": ["libs/features/character-filters/src/index.ts"],
       "@/*": ["apps/multiverse-front/src/*"]
     }
   }

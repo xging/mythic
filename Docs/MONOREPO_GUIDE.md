@@ -78,12 +78,12 @@ npx nx g @nx/react:app my-new-app --directory=apps/my-new-app
 ### Из библиотек (libs)
 
 ```ts
-import { Button } from '@dndshka/shared/ui';
-import { featuresConfig } from '@dndshka/shared/config';
-import { CharactersProvider } from '@dndshka/shared/contexts';
-import { colorMap } from '@dndshka/shared/lib';
-import { Character } from '@dndshka/entities/character';
-import { useFilteredCharacters } from '@dndshka/features/character-filters';
+import { Button } from '@mythic/shared/ui';
+import { featuresConfig } from '@mythic/shared/config';
+import { CharactersProvider } from '@mythic/shared/contexts';
+import { colorMap } from '@mythic/shared/lib';
+import { Character } from '@mythic/entities/character';
+import { useFilteredCharacters } from '@mythic/features/character-filters';
 ```
 
 ### Локальные импорты (внутри приложения)
@@ -120,7 +120,7 @@ import { HomePage } from '@/pages/home/home-page';
 Feature flags живут в `libs/shared/config/src/features.ts` и доступны всем приложениям:
 
 ```ts
-import { featuresConfig } from '@dndshka/shared/config';
+import { featuresConfig } from '@mythic/shared/config';
 const isEnabled = featuresConfig.app.loadingScreen;
 ```
 
@@ -151,4 +151,4 @@ npx nx graph
 4. **`src/entities/*`** → переносится в `libs/entities/*`
 5. **`src/features/*`** → переносится в `libs/features/*`
 6. Старые файлы удаляются
-7. Импорты меняются с `@/shared/...` на `@dndshka/shared/...`
+7. Импорты меняются с `@/shared/...` на `@mythic/shared/...`

@@ -1,5 +1,5 @@
 // For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
-import storybook from "eslint-plugin-storybook";
+import storybook from 'eslint-plugin-storybook';
 
 import js from '@eslint/js';
 import globals from 'globals';
@@ -9,21 +9,28 @@ import tseslint from 'typescript-eslint';
 import eslintPluginPrettier from 'eslint-plugin-prettier';
 import eslintConfigPrettier from 'eslint-config-prettier';
 
-export default tseslint.config({
-  ignores: ['dist'],
-}, js.configs.recommended, ...tseslint.configs.recommended, eslintConfigPrettier, {
-  files: ['**/*.{ts,tsx}'],
-  languageOptions: {
-    globals: globals.browser,
+export default tseslint.config(
+  {
+    ignores: ['**/dist', '**/.storybook'],
   },
-  plugins: {
-    'react-hooks': reactHooks,
-    'react-refresh': reactRefresh,
-    prettier: eslintPluginPrettier,
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  eslintConfigPrettier,
+  {
+    files: ['**/*.{ts,tsx}'],
+    languageOptions: {
+      globals: globals.browser,
+    },
+    plugins: {
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+      prettier: eslintPluginPrettier,
+    },
+    rules: {
+      ...reactHooks.configs.recommended.rules,
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      'prettier/prettier': 'error',
+    },
   },
-  rules: {
-    ...reactHooks.configs.recommended.rules,
-    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-    'prettier/prettier': 'error',
-  },
-}, storybook.configs["flat/recommended"]);
+  storybook.configs['flat/recommended'],
+);

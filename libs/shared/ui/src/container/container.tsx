@@ -1,5 +1,5 @@
-﻿import type { ReactNode } from 'react';
-import { cn } from '@dndshka/shared/lib';
+import type { ReactNode } from 'react';
+import { cn } from '@mythic/shared/lib';
 import styles from './container.module.scss';
 
 type ContainerSize = 'sm' | 'md' | 'lg' | 'xl' | 'full';

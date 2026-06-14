@@ -1,6 +1,6 @@
-﻿import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { RoleFilter } from './role-filter';
-import type { Role } from '@dndshka/entities/character/model';
+import type { Role } from '@mythic/entities/character/model';
 
 const meta = {
   title: 'features/character-filters/RoleFilter',

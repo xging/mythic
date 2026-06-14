@@ -10,21 +10,21 @@ export default defineConfig({
     react(),
     checker({
       eslint: {
-        lintCommand: 'eslint .',
+        lintCommand: 'eslint . --config ../../eslint.config.js',
       },
     }),
   ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@dndshka/shared/config': path.resolve(__dirname, '../../libs/shared/config/src'),
-      '@dndshka/shared/contexts': path.resolve(__dirname, '../../libs/shared/contexts/src'),
-      '@dndshka/shared/lib': path.resolve(__dirname, '../../libs/shared/lib/src'),
-      '@dndshka/shared/styles': path.resolve(__dirname, '../../libs/shared/styles/src'),
-      '@dndshka/shared/types': path.resolve(__dirname, '../../libs/shared/types/src'),
-      '@dndshka/shared/ui': path.resolve(__dirname, '../../libs/shared/ui/src'),
-      '@dndshka/entities/character': path.resolve(__dirname, '../../libs/entities/character/src'),
-      '@dndshka/features/character-filters': path.resolve(
+      '@mythic/shared/config': path.resolve(__dirname, '../../libs/shared/config/src'),
+      '@mythic/shared/contexts': path.resolve(__dirname, '../../libs/shared/contexts/src'),
+      '@mythic/shared/lib': path.resolve(__dirname, '../../libs/shared/lib/src'),
+      '@mythic/shared/styles': path.resolve(__dirname, '../../libs/shared/styles/src'),
+      '@mythic/shared/types': path.resolve(__dirname, '../../libs/shared/types/src'),
+      '@mythic/shared/ui': path.resolve(__dirname, '../../libs/shared/ui/src'),
+      '@mythic/entities/character': path.resolve(__dirname, '../../libs/entities/character/src'),
+      '@mythic/features/character-filters': path.resolve(
         __dirname,
         '../../libs/features/character-filters/src',
       ),

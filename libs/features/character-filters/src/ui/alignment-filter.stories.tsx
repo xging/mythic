@@ -1,6 +1,6 @@
-﻿import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { AlignmentFilter } from './alignment-filter';
-import type { Alignment } from '@dndshka/entities/character/model';
+import type { Alignment } from '@mythic/entities/character/model';
 
 const meta = {
   title: 'features/character-filters/AlignmentFilter',

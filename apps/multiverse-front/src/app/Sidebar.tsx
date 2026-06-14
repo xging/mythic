@@ -1,6 +1,6 @@
-﻿import { Link, useLocation } from 'react-router-dom';
-import { homeConfig } from '@dndshka/shared/config/home';
-import { navigationConfig } from '@dndshka/shared/config/navigation';
+import { Link, useLocation } from 'react-router-dom';
+import { homeConfig } from '@mythic/shared/config/home';
+import { navigationConfig } from '@mythic/shared/config/navigation';
 
 const {
   siteName,
@@ -50,7 +50,7 @@ export const Sidebar = () => {
   return (
     <aside className="sidebar">
       <Link className="logo" to="/" aria-label="Home">
-        <div className="logo-mark">в—‡</div>
+        <div className="logo-mark">◇</div>
         <div>
           <strong>{siteName}</strong>
           <span>{siteTagline}</span>
@@ -77,7 +77,7 @@ export const Sidebar = () => {
         <div className="sidebar-footer">
           {isSettingsButtonVisible && (
             <button type="button" className="nav-link">
-              <span className="nav-icon">вљ™</span>
+              <span className="nav-icon">⚙</span>
               {settingsLabel}
             </button>
           )}

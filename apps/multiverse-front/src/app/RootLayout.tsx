@@ -1,4 +1,4 @@
-﻿import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { NavigationHandler } from './NavigationHandler';
 import { Sidebar } from './Sidebar';
 

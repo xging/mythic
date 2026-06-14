@@ -1,5 +1,5 @@
-﻿import { useMemo } from 'react';
-import type { Character, Universe, Role, Alignment } from '@dndshka/entities/character/model';
+import { useMemo } from 'react';
+import type { Character, Universe, Role, Alignment } from '@mythic/entities/character/model';
 
 export const getFilteredCharacters = (
   characters: Character[],

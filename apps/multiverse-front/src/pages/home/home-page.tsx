@@ -1,13 +1,13 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { UNIVERSES, UNIVERSE_COLORS } from '@dndshka/entities/character/model';
-import { useCharacters } from '@dndshka/shared/contexts';
-import type { Universe, Role, Alignment } from '@dndshka/entities/character/model';
-import { CharacterList, CharacterDetails } from '@dndshka/entities/character/ui';
-import { useFilteredCharacters } from '@dndshka/features/character-filters/model';
-import { SearchInput, RoleFilter, AlignmentFilter } from '@dndshka/features/character-filters/ui';
-import { featuresConfig } from '@dndshka/shared/config/features';
+import { UNIVERSES, UNIVERSE_COLORS } from '@mythic/entities/character/model';
+import { useCharacters } from '@mythic/shared/contexts';
+import type { Universe, Role, Alignment } from '@mythic/entities/character/model';
+import { CharacterList, CharacterDetails } from '@mythic/entities/character/ui';
+import { useFilteredCharacters } from '@mythic/features/character-filters/model';
+import { SearchInput, RoleFilter, AlignmentFilter } from '@mythic/features/character-filters/ui';
+import { featuresConfig } from '@mythic/shared/config/features';
 
 const {
   headerActions: { addCharacterButton, viewToggle },
@@ -34,7 +34,7 @@ export const HomePage = () => {
     characters[0]?.id ?? null,
   );
 
-  // Filtering вЂ” universe tabs are the single source of universe filtering
+  // Filtering — universe tabs are the single source of universe filtering
   const filteredCharacters = useFilteredCharacters(
     characters,
     search,
@@ -67,10 +67,10 @@ export const HomePage = () => {
             {viewToggle && (
               <>
                 <button type="button" className="icon-button" aria-label="Grid view">
-                  в–¦
+                  ▦
                 </button>
                 <button type="button" className="icon-button" aria-label="List view">
-                  в°
+                  ☰
                 </button>
               </>
             )}

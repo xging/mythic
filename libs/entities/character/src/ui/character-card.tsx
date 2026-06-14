@@ -1,5 +1,5 @@
-﻿import type { Character } from '@dndshka/entities/character/model';
-import { colorMap } from '@dndshka/shared/lib/color-map';
+import type { Character } from '@mythic/entities/character/model';
+import { colorMap } from '@mythic/shared/lib/color-map';
 import styles from './character-card.module.scss';
 
 interface CharacterCardProps {

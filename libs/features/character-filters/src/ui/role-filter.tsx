@@ -1,5 +1,5 @@
-﻿import { ROLES } from '@dndshka/entities/character/model';
-import type { Role } from '@dndshka/entities/character/model';
+import { ROLES } from '@mythic/entities/character/model';
+import type { Role } from '@mythic/entities/character/model';
 
 interface RoleFilterProps {
   value: Role;

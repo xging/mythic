@@ -1,6 +1,6 @@
-﻿import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useLoading } from '@dndshka/shared/contexts';
+import { useLoading } from '@mythic/shared/contexts';
 
 /**
  * Automatically shows loading screen during page transitions

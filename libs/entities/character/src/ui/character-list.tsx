@@ -1,4 +1,4 @@
-﻿import type { Character } from '@dndshka/entities/character/model';
+import type { Character } from '@mythic/entities/character/model';
 import { CharacterCard } from './character-card';
 import styles from './character-list.module.scss';
 

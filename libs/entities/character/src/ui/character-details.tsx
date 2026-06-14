@@ -1,6 +1,6 @@
-﻿import type { CSSProperties } from 'react';
-import type { Character } from '@dndshka/entities/character/model';
-import { colorMap } from '@dndshka/shared/lib/color-map';
+import type { CSSProperties } from 'react';
+import type { Character } from '@mythic/entities/character/model';
+import { colorMap } from '@mythic/shared/lib/color-map';
 import styles from './character-details.module.scss';
 
 interface CharacterDetailsProps {
@@ -22,10 +22,10 @@ export const CharacterDetails = ({ character }: CharacterDetailsProps) => {
     <article className={styles.detailsCard} style={style}>
       <section className={styles.detailsHero}>
         <button className={styles.closeButton} aria-label="Close details" type="button">
-          Г—
+          ×
         </button>
         <button className={styles.bookmarkButton} aria-label="Save character" type="button">
-          в–±
+          ▱
         </button>
         <div className={styles.detailsHeroContent}>
           <h2>{character.name}</h2>

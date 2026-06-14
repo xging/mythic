@@ -1,5 +1,5 @@
-﻿import type { ButtonHTMLAttributes, ReactNode } from 'react';
-import { cn } from '@dndshka/shared/lib';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import { cn } from '@mythic/shared/lib';
 import styles from './Button.module.scss';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

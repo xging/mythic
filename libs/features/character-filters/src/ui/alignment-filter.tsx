@@ -1,5 +1,5 @@
-﻿import { ALIGNMENTS } from '@dndshka/entities/character/model';
-import type { Alignment } from '@dndshka/entities/character/model';
+import { ALIGNMENTS } from '@mythic/entities/character/model';
+import type { Alignment } from '@mythic/entities/character/model';
 
 interface AlignmentFilterProps {
   value: Alignment;

@@ -1,9 +1,9 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useCharacters } from '@dndshka/shared/contexts';
-import { UNIVERSES, ROLES, ALIGNMENTS } from '@dndshka/entities/character/model';
-import type { Character, Universe, Role, Alignment } from '@dndshka/entities/character/model';
+import { useCharacters } from '@mythic/shared/contexts';
+import { UNIVERSES, ROLES, ALIGNMENTS } from '@mythic/entities/character/model';
+import type { Character, Universe, Role, Alignment } from '@mythic/entities/character/model';
 import styles from './character-create.module.scss';
 
 const COLORS: Character['color'][] = [
@@ -25,7 +25,7 @@ const INITIAL_STATE = {
   alignment: 'Good' as Alignment,
   power: 50,
   color: 'purple' as Character['color'],
-  symbol: 'вњ¦',
+  symbol: '✦',
   imageGradient: 'linear-gradient(135deg, #19122d, #422063 46%, #111827)',
   about: '',
   STR: 10,
@@ -71,7 +71,7 @@ export const CharacterCreatePage = () => {
       alignment: form.alignment,
       power: form.power,
       color: form.color,
-      symbol: form.symbol || 'вњ¦',
+      symbol: form.symbol || '✦',
       imageGradient: form.imageGradient,
       about: form.about.trim(),
       attributes: {
@@ -224,7 +224,7 @@ export const CharacterCreatePage = () => {
               type="text"
               value={form.symbol}
               onChange={(e) => updateField('symbol', e.target.value)}
-              placeholder="вњ¦"
+              placeholder="✦"
               maxLength={5}
             />
           </div>

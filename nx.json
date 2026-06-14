@@ -1,14 +1,7 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "defaultBase": "master",
-  "plugins": [
-    {
-      "plugin": "@nx/js/typescript",
-      "options": {
-        "buildableProjectDepsInDevMode": true
-      }
-    }
-  ],
+  "plugins": [],
   "defaultProject": "multiverse-front",
   "analytics": true
 }

@@ -4,14 +4,14 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@dndshka/shared/config": ["../../libs/shared/config/src"],
-      "@dndshka/shared/contexts": ["../../libs/shared/contexts/src"],
-      "@dndshka/shared/lib": ["../../libs/shared/lib/src"],
-      "@dndshka/shared/styles": ["../../libs/shared/styles/src"],
-      "@dndshka/shared/types": ["../../libs/shared/types/src"],
-      "@dndshka/shared/ui": ["../../libs/shared/ui/src"],
-      "@dndshka/entities/character": ["../../libs/entities/character/src"],
-      "@dndshka/features/character-filters": ["../../libs/features/character-filters/src"]
+      "@mythic/shared/config": ["../../libs/shared/config/src"],
+      "@mythic/shared/contexts": ["../../libs/shared/contexts/src"],
+      "@mythic/shared/lib": ["../../libs/shared/lib/src"],
+      "@mythic/shared/styles": ["../../libs/shared/styles/src"],
+      "@mythic/shared/types": ["../../libs/shared/types/src"],
+      "@mythic/shared/ui": ["../../libs/shared/ui/src"],
+      "@mythic/entities/character": ["../../libs/entities/character/src"],
+      "@mythic/features/character-filters": ["../../libs/features/character-filters/src"]
     }
   },
   "include": ["src"]

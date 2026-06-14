@@ -1,5 +1,5 @@
-﻿import { Link } from 'react-router-dom';
-import { Button } from '@dndshka/shared/ui';
+import { Link } from 'react-router-dom';
+import { Button } from '@mythic/shared/ui';
 import { ROUTES } from '@/app/router/routes';
 import styles from './not-found-page.module.scss';
 

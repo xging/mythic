@@ -1,4 +1,4 @@
-﻿export const ROUTES = {
+export const ROUTES = {
   home: '/',
   characters: '/characters',
   character: '/characters/:characterId',

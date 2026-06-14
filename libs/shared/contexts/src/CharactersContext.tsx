@@ -1,6 +1,6 @@
-﻿import { createContext, useContext, useState, type ReactNode } from 'react';
-import type { Character } from '@dndshka/entities/character/model';
-import { characters as initialCharacters } from '@dndshka/entities/character/model/characters';
+import { createContext, useContext, useState, type ReactNode } from 'react';
+import type { Character } from '@mythic/entities/character/model';
+import { characters as initialCharacters } from '@mythic/entities/character/model/characters';
 
 interface CharactersContextValue {
   characters: Character[];

@@ -1,4 +1,4 @@
-import { LoadingScreen } from '@dndshka/shared/ui';
+import { LoadingScreen } from '@mythic/shared/ui';
 import { NexusPortalLogo } from './NexusPortalLogo';
 import { NexusLoadingText } from './NexusLoadingText';
 import { NexusLoadingProgress } from './NexusLoadingProgress';

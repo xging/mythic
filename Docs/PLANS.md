@@ -2,7 +2,7 @@
 
 > **Дата:** 10.06.2026
 > **Стек:** React 19, TypeScript 6, React Router 7, TanStack Query, FSD, SCSS Modules
-> **Репозиторий:** [github.com/xging/dndshka](https://github.com/xging/dndshka)
+> **Репозиторий:** [github.com/xging/mythic](https://github.com/xging/mythic)
 
 ---
 
