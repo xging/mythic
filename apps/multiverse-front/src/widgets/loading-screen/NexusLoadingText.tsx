@@ -1,6 +1,6 @@
-import styles from './loading-screen.module.scss';
+import styles from './nexus-loading-screen.module.scss';
 
-export const LoadingText = () => {
+export const NexusLoadingText = () => {
   return (
     <div className={styles['loading-text']}>
       <h1>NEXUS</h1>

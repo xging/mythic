@@ -1,22 +1,18 @@
-import { PortalLogo } from './PortalLogo';
-import { LoadingText } from './LoadingText';
-import { LoadingProgress } from './LoadingProgress';
+import type { ReactNode } from 'react';
 import styles from './loading-screen.module.scss';
 
 interface LoadingScreenProps {
+  children?: ReactNode;
   isVisible?: boolean;
+  className?: string;
 }
 
-export const LoadingScreen = ({ isVisible = true }: LoadingScreenProps) => {
+export const LoadingScreen = ({ children, isVisible = true, className }: LoadingScreenProps) => {
   if (!isVisible) return null;
 
   return (
-    <main className={styles['loading-screen']}>
-      <section className={styles['nexus-loader']} aria-label="Loading Nexus Multiverse Archive">
-        <PortalLogo />
-        <LoadingText />
-        <LoadingProgress />
-      </section>
+    <main className={`${styles['loading-screen']} ${className ?? ''}`}>
+      <div className={styles['loader-content']}>{children}</div>
     </main>
   );
 };

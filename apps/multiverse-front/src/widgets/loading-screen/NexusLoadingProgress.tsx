@@ -1,6 +1,6 @@
-import styles from './loading-screen.module.scss';
+import styles from './nexus-loading-screen.module.scss';
 
-export const LoadingProgress = () => {
+export const NexusLoadingProgress = () => {
   return (
     <div className={styles['loading-progress']}>
       <div className={styles['progress-track']}>

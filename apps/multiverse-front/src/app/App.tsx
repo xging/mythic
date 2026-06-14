@@ -2,8 +2,8 @@
 
 import { router } from './router/router';
 import { LoadingProvider, CharactersProvider, useLoading } from '@dndshka/shared/contexts';
-import { LoadingScreen } from '@dndshka/shared/ui';
 import { featuresConfig } from '@dndshka/shared/config';
+import { NexusLoadingScreen } from '../widgets/loading-screen';
 
 const AppContent = () => {
   const { isLoading } = useLoading();
@@ -12,7 +12,7 @@ const AppContent = () => {
 
   return (
     <>
-      {isLoadingScreenEnabled && <LoadingScreen isVisible={isLoading} />}
+      {isLoadingScreenEnabled && <NexusLoadingScreen isVisible={isLoading} />}
       <RouterProvider router={router} />
     </>
   );

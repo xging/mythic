@@ -1,6 +1,6 @@
-import styles from './loading-screen.module.scss';
+import styles from './nexus-loading-screen.module.scss';
 
-export const PortalLogo = () => {
+export const NexusPortalLogo = () => {
   return (
     <div className={styles['portal-logo']}>
       <div className={styles['portal-glow']}></div>
