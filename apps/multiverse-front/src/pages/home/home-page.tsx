@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { UNIVERSES, UNIVERSE_COLORS } from '@mythic/entities/character/model';
+import { UNIVERSES, UNIVERSE_COLORS } from '@mythic/entities/character';
 import { useCharacters } from '@mythic/shared/contexts';
-import type { Universe, Role, Alignment } from '@mythic/entities/character/model';
-import { CharacterDetails } from '@mythic/entities/character/ui';
+import type { Universe, Role, Alignment } from '@mythic/entities/character';
+import { CharacterDetails } from '@mythic/entities/character';
 import { CharacterList } from '../../widgets/character-list/character-list';
-import { useFilteredCharacters } from '@mythic/features/character-filters/model';
-import { SearchInput, RoleFilter, AlignmentFilter } from '@mythic/features/character-filters/ui';
-import { featuresConfig } from '@mythic/shared/config/features';
+import { useFilteredCharacters } from '@mythic/features/character-filters';
+import { SearchInput, RoleFilter, AlignmentFilter } from '@mythic/features/character-filters';
+import { featuresConfig } from '@mythic/shared/config';
 
 const {
   headerActions: { addCharacterButton, viewToggle },

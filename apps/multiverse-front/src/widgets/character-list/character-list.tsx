@@ -1,4 +1,4 @@
-import type { Character } from '@mythic/entities/character/model';
+import type { Character } from '@mythic/entities/character';
 import { CharacterCard } from '../character-card/character-card';
 import styles from './character-list.module.scss';
 

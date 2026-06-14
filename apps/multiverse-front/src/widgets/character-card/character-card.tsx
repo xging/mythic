@@ -1,6 +1,6 @@
-import type { Character } from '@mythic/entities/character/model';
+import type { Character } from '@mythic/entities/character';
 import { Card } from '@mythic/shared/ui';
-import { colorMap } from '@mythic/shared/lib/color-map';
+import { colorMap } from '@mythic/shared/lib';
 import styles from './character-card.module.scss';
 
 interface CharacterCardProps {

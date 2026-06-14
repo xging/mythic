@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { CharacterCard } from './character-card';
-import type { Character } from '@mythic/entities/character/model';
+import type { Character } from '@mythic/entities/character';
 
 const mockCharacter: Character = {
   id: '1',

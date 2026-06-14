@@ -1,4 +1,4 @@
-export type { Character, FilterOptions } from './model';
+export type { Character, FilterOptions, Universe, Role, Alignment } from './model';
 export { UNIVERSES, ROLES, ALIGNMENTS, UNIVERSE_COLORS } from './model';
 
 export { CharacterDetails } from './ui';
