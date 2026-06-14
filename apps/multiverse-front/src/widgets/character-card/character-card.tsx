@@ -1,4 +1,5 @@
 import type { Character } from '@mythic/entities/character/model';
+import { Card } from '@mythic/shared/ui';
 import { colorMap } from '@mythic/shared/lib/color-map';
 import styles from './character-card.module.scss';
 
@@ -18,12 +19,7 @@ export const CharacterCard = ({ character, isActive, onClick }: CharacterCardPro
   } as React.CSSProperties;
 
   return (
-    <article
-      className={`${styles.characterCard} ${isActive ? styles.selected : ''}`}
-      data-id={character.id}
-      onClick={onClick}
-      style={style}
-    >
+    <Card isSelected={isActive} onClick={onClick} data-id={character.id} style={style}>
       <div className={styles.cardArt} />
       <div className={styles.cardSymbol}>{character.symbol}</div>
       <div className={styles.cardContent}>
@@ -38,6 +34,6 @@ export const CharacterCard = ({ character, isActive, onClick }: CharacterCardPro
           <div className={styles.powerFill} />
         </div>
       </div>
-    </article>
+    </Card>
   );
 };

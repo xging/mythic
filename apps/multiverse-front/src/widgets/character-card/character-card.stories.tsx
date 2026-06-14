@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { CharacterCard } from './character-card';
-import type { Character } from '../model';
+import type { Character } from '@mythic/entities/character/model';
 
 const mockCharacter: Character = {
   id: '1',
@@ -21,7 +21,7 @@ const mockCharacter: Character = {
 };
 
 const meta = {
-  title: 'entities/character/CharacterCard',
+  title: 'widgets/character/CharacterCard',
   component: CharacterCard,
   parameters: {
     layout: 'centered',

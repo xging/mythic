@@ -1,5 +1,5 @@
 import type { Character } from '@mythic/entities/character/model';
-import { CharacterCard } from './character-card';
+import { CharacterCard } from '../character-card/character-card';
 import styles from './character-list.module.scss';
 
 interface CharacterListProps {
