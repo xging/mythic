@@ -1,99 +1,171 @@
 @use '@mythic/shared/styles' as *;
+
 .characterCard {
-  --accent: #8b5cf6;
-  --accent-glow: rgba(139, 92, 246, 0.34);
-  --power: 0%;
-  --image-gradient: linear-gradient(135deg, #19122d, #422063 46%, #111827);
+  // width: 360px;
+  height: 260px;
+  min-width: 360px;
+  min-height: 260px;
+
   position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 304px;
-  border-radius: 8px;
-  background: var(--image-gradient);
-  border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
-  cursor: pointer;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-    border-color: var(--accent);
-  }
-  &.selected {
-    border-color: var(--accent);
-    box-shadow: 0 0 20px var(--accent-glow);
-  }
-  .cardArt {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--image-gradient);
-    opacity: 0.3;
-  }
-  .cardSymbol {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    font-size: $font-size-2xl;
-    z-index: 2;
-  }
-  .cardContent {
-    position: relative;
-    z-index: 2;
-    padding: 12px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    h3 {
-      margin: 0;
-      font-size: $font-size-lg;
-      font-weight: $font-weight-bold;
-      color: $text-primary;
-      margin-bottom: 4px;
-    }
-    p {
-      margin: 0;
-      font-size: $font-size-sm;
-      color: $text-muted;
-      margin-bottom: 8px;
-    }
-  }
-  .cardTags {
-    font-size: $font-size-xs;
-    color: var(--accent);
-    font-weight: $font-weight-semibold;
-    margin-bottom: auto;
-  }
-  .powerRow {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 12px;
-    font-size: $font-size-xs;
-    color: $text-muted;
-    .powerValue {
-      color: var(--accent);
-      font-size: $font-size-md;
-    }
-  }
-  .powerTrack {
-    width: 100%;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 2px;
-    margin-top: 4px;
-    overflow: hidden;
-    .powerFill {
-      height: 100%;
-      width: var(--power);
-      background: linear-gradient(90deg, var(--accent), rgba(139, 92, 246, 0.6));
-      border-radius: 2px;
-    }
-  }
+  padding: 0;
+  gap: 0;
+}
+
+.cardArt {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  // background-image:
+  //   var(--image-gradient),
+  //   url('/assets/hero-placeholder.png');
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.04);
+  transition: transform 0.35s ease;
+}
+
+.characterCard:hover .cardArt {
+  transform: scale(1.1);
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(9, 13, 22, 0.96) 0%,
+      rgba(9, 13, 22, 0.68) 36%,
+      rgba(9, 13, 22, 0.18) 72%
+    ),
+    linear-gradient(to right, rgba(9, 13, 22, 0.72), rgba(9, 13, 22, 0.06));
+  pointer-events: none;
+}
+
+.cardTop {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding: 12px;
+}
+
+.cardSymbol {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+
+  color: var(--accent);
+  background: rgba(17, 22, 34, 0.72);
+  box-shadow: 0 0 20px var(--accent-glow);
+  backdrop-filter: blur(10px);
+
+  font-size: 13px;
+  line-height: 1;
+}
+
+.cardSymbol > * {
+  display: block;
+  line-height: 1;
+}
+
+.powerBadge {
+  display: grid;
+  justify-items: end;
+  gap: 2px;
+
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+
+  background: rgba(17, 22, 34, 0.72);
+  backdrop-filter: blur(10px);
+}
+
+.powerBadge span {
+  color: rgba(226, 228, 240, 0.68);
+  font-size: 10px;
+  line-height: 1;
+}
+
+.powerBadge strong {
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.cardContent {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  z-index: 2;
+
+  display: grid;
+  gap: 8px;
+}
+
+.cardTitle {
+  margin: 0;
+
+  color: #f8f8fb;
+  font-size: 20px;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.cardUniverse {
+  margin: 0;
+
+  color: rgba(226, 228, 240, 0.74);
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.cardMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  margin-top: 4px;
+}
+
+.cardTag {
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 24px;
+  padding: 5px 8px;
+
+  border: 1px solid rgba(168, 176, 205, 0.16);
+  border-radius: 999px;
+
+  color: #dfe1ec;
+  background: rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(10px);
+
+  font-size: 12px;
+  line-height: 1;
+}
+
+.cardTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cardTag svg {
+  flex-shrink: 0;
+  color: var(--accent);
 }

@@ -11,26 +11,14 @@
     "dev": "cd apps/multiverse-front && npx vite --host --port 3000",
     "build": "cd apps/multiverse-front && tsc -b && npx vite build",
     "lint": "cd apps/multiverse-front && npx eslint .",
-    "format": "prettier --write .",
     "prepare": "husky",
     "preview": "cd apps/multiverse-front && npx vite preview --port 3000",
     "storybook": "cd apps/multiverse-front && npx storybook dev -p 6006",
     "build-storybook": "cd apps/multiverse-front && npx storybook build",
     "nx:graph": "nx graph"
   },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{scss,css}": [
-      "prettier --write"
-    ],
-    "*.{json,md}": [
-      "prettier --write"
-    ]
-  },
   "dependencies": {
+    "lucide-react": "^1.20.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-router-dom": "^7.16.0"
@@ -44,8 +32,6 @@
     "@vitest/browser-playwright": "^4.1.8",
     "@vitest/coverage-v8": "^4.1.8",
     "eslint": "^10.3.0",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.6",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "eslint-plugin-storybook": "^0.11.0",
@@ -54,7 +40,6 @@
     "lint-staged": "^17.0.7",
     "nx": "22.7.5",
     "playwright": "^1.60.0",
-    "prettier": "^3.8.3",
     "sass-embedded": "^1.100.0",
     "storybook": "^10.4.3",
     "typescript": "~6.0.2",
@@ -62,6 +47,15 @@
     "vite": "^8.0.12",
     "vite-plugin-checker": "^0.14.1",
     "vitest": "^4.1.8"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "npx eslint --fix",
+      "npx prettier --write"
+    ],
+    "*.{js,jsx,cjs,mjs,json,css,scss,md}": [
+      "npx prettier --write"
+    ]
   },
   "nx": {}
 }
